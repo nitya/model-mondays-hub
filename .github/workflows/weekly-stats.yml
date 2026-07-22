@@ -1,0 +1,66 @@
+name: weekly-stats
+
+# Cron job: pulls current YouTube view/like/comment counts for every
+# published episode via the YouTube Data API v3, writes a dated snapshot to
+# data/metrics/, patches each episode's metrics block, and opens a PR with
+# the changes for review (no direct pushes to main).
+#
+# Required repo secret: YOUTUBE_API_KEY
+#   Settings → Secrets and variables → Actions → New repository secret.
+#   Create a key in Google Cloud Console with the "YouTube Data API v3"
+#   enabled; no OAuth needed, an API key is sufficient for read-only
+#   videos.list statistics calls.
+
+on:
+  schedule:
+    # Every Monday at 13:00 UTC (~9am ET) — after the live show typically airs.
+    - cron: "0 13 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch YouTube stats
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: node scripts/fetch-youtube-stats.mjs
+
+      - name: Validate data
+        run: npm run validate
+
+      - name: Open PR with updated metrics
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore(metrics): weekly YouTube stats refresh"
+          title: "Weekly YouTube stats refresh"
+          body: |
+            Automated weekly metrics update from the `weekly-stats` workflow.
+
+            - Pulls current view/like/comment counts for every published
+              episode via the YouTube Data API v3.
+            - Writes a dated snapshot to `data/metrics/<date>.json`.
+            - Patches each episode YAML's `metrics` block in place.
+
+            Safe to merge once `validate-data` passes.
+          branch: automation/weekly-stats
+          delete-branch: true
+          labels: |
+            automation
+            data
