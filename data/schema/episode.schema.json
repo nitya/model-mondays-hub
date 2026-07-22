@@ -95,6 +95,31 @@
         }
       }
     },
+    "resources": {
+      "type": "array",
+      "description": "Related Microsoft Learn or external documentation links.",
+      "items": {
+        "type": "object",
+        "required": ["title", "url"],
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "type": { "type": "string", "enum": ["documentation", "tutorial", "quickstart", "overview", "sample"], "default": "documentation" }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "description": "AI-generated episode summary organized by segment type.",
+      "additionalProperties": false,
+      "properties": {
+        "highlights": { "type": "array", "items": { "type": "string" } },
+        "techSpotlights": { "type": "array", "items": { "type": "string" } },
+        "customerStories": { "type": "array", "items": { "type": "string" } },
+        "partnerSpotlights": { "type": "array", "items": { "type": "string" } }
+      }
+    },
     "provenance": {
       "type": "string",
       "description": "How this record was sourced, e.g. 'scraped:youtube-playlist' or 'placeholder:season-schedule'."

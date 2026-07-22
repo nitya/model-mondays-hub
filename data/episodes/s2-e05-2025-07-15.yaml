@@ -2,10 +2,9 @@
 id: s2-e05-2025-07-15
 title: Model Mondays - Fine Tuning & Distillation
 description: >-
-  Model customization is critical to ensuring the model is optimized for your application
-  requirements. Join us as we talk to Dave Voutila about fine-tuning Azure OpenAI models, using
-  distillation techniques for efficient knowledge transfer, and other best practices in Azure AI
-  Foundry.
+  Model customization is critical to ensuring the model is optimized for your application requirements. Join us as we
+  talk to Dave Voutila about fine-tuning Azure OpenAI models, using distillation techniques for efficient knowledge
+  transfer, and other best practices in Azure AI Foundry.
 season: season-2
 publishDate: '2025-07-15'
 status: published
@@ -88,3 +87,10 @@ chapters:
   - time: '43:00'
     label: – Final Thoughts & Community Call-to-Action
 provenance: scraped:youtube-playlist
+resources:
+  - title: Azure AI Foundry documentation
+    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
+    type: documentation
+  - title: Model Mondays series (RSVP)
+    url: https://developer.microsoft.com/reactor/series/S-1485
+    type: overview

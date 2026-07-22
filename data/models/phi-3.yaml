@@ -1,0 +1,18 @@
+id: phi-3
+name: Phi-3
+provider: Microsoft
+family: Phi
+category: small-language
+description: Microsoft's capable small model available in mini (3.8B) and medium (14B) variants for on-device AI.
+catalogUrl: https://ai.azure.com/catalog/models/Phi-3-mini-4k-instruct
+providerUrl: https://azure.microsoft.com/en-us/blog/introducing-phi-3/
+learnUrl: https://learn.microsoft.com/en-us/azure/ai/foundry/models/phi-3
+parameters: 3.8B–14B
+openSource: true
+status: active
+episodes:
+  - s1-e06-2025-04-14
+  - s2-e08-2025-08-04
+statusUpdatedAt: '2026-07-22'
+provenance: seed:manual-curation
+publisherUrl: https://ai.azure.com/catalog/publishers/microsoft

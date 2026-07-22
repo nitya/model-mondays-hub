@@ -1,0 +1,19 @@
+id: phi-4
+name: Phi-4
+provider: Microsoft
+family: Phi
+category: small-language
+description: Microsoft's state-of-the-art small language model (14B params) — strong reasoning in a compact footprint.
+catalogUrl: https://ai.azure.com/catalog/models/Phi-4
+providerUrl: >-
+  https://azure.microsoft.com/en-us/blog/introducing-phi-4-microsoft-s-newest-small-language-model-specializing-in-complex-reasoning/
+learnUrl: https://learn.microsoft.com/en-us/azure/ai/foundry/models/phi-4
+parameters: 14B
+openSource: true
+status: active
+episodes:
+  - s2-e03-2025-06-30
+  - s3-e03-2025-12-16
+statusUpdatedAt: '2026-07-22'
+provenance: seed:manual-curation
+publisherUrl: https://ai.azure.com/catalog/publishers/microsoft

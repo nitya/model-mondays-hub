@@ -2,14 +2,13 @@
 id: s3-e15-2026-04-21
 title: Model Mondays - Building Microsoft Foundry Agents Within VS Code
 description: >-
-  Want to build Microsoft Foundry agentic AI solutions but don't know where to start and how to keep
-  up with all the models, tools and best practices? What if you could get all the support you needed
-  right in your IDE - and have a coding agent to assist you in discovering and implementing best
-  practices? Join us as we talk to two experts from the Core AI product teams about what's new for
-  building Foundry Agents with VS Code. First we talk to Junjie Li about the latest tools, features
-  and capabilities coming to the Visual Studio Code extensions ecosystem to help you plan, build,
-  and operate, your AI agents - right from your IDE!! Learn how the seamless integration with GitHub
-  Copilot can help accelerate and inform your developer workflows!
+  Want to build Microsoft Foundry agentic AI solutions but don't know where to start and how to keep up with all the
+  models, tools and best practices? What if you could get all the support you needed right in your IDE - and have a
+  coding agent to assist you in discovering and implementing best practices? Join us as we talk to two experts from the
+  Core AI product teams about what's new for building Foundry Agents with VS Code. First we talk to Junjie Li about the
+  latest tools, features and capabilities coming to the Visual Studio Code extensions ecosystem to help you plan, build,
+  and operate, your AI agents - right from your IDE!! Learn how the seamless integration with GitHub Copilot can help
+  accelerate and inform your developer workflows!
 season: season-3
 publishDate: '2026-04-21'
 status: published
@@ -109,3 +108,17 @@ chapters:
   - time: '49:52'
     label: Event Outro & Feedback
 provenance: scraped:youtube-playlist
+resources:
+  - title: Azure AI Foundry documentation
+    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
+    type: documentation
+  - title: Model Mondays series (RSVP)
+    url: https://developer.microsoft.com/reactor/series/S-1485
+    type: overview
+summary:
+  highlights:
+    - Discussion of model selection and deployment strategies
+    - Live demonstration of platform capabilities
+    - AI agent architecture and agentic workflows
+  techSpotlights:
+    - Model Context Protocol for tool integration

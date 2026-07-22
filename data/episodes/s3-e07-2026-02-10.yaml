@@ -2,9 +2,8 @@
 id: s3-e07-2026-02-10
 title: Model Mondays - Next-Gen UI Experiences
 description: >-
-  Building agentic AI solutions requires end-to-end workflows that take you from planning to
-  prototype and production. Join us as we talk to Amir Zur about the Microsoft Foundry portal and
-  the next-gen UI experience.
+  Building agentic AI solutions requires end-to-end workflows that take you from planning to prototype and production.
+  Join us as we talk to Amir Zur about the Microsoft Foundry portal and the next-gen UI experience.
 season: season-3
 publishDate: '2026-02-10'
 status: published
@@ -105,3 +104,10 @@ chapters:
   - time: '49:12'
     label: Closing Remarks
 provenance: scraped:youtube-playlist
+resources:
+  - title: Azure AI Foundry documentation
+    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
+    type: documentation
+  - title: Model Mondays series (RSVP)
+    url: https://developer.microsoft.com/reactor/series/S-1485
+    type: overview

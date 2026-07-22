@@ -29,14 +29,16 @@ const activeSeason = seasons.find((s) => s.data.status === "upcoming") ?? season
 
 const totalViews = published.reduce((sum, ep) => sum + (ep.data.metrics?.views ?? 0), 0);
 const totalLikes = published.reduce((sum, ep) => sum + (ep.data.metrics?.likes ?? 0), 0);
-const totalComments = published.reduce((sum, ep) => sum + (ep.data.metrics?.comments ?? 0), 0);
+const totalMinutes = Math.round(
+  published.reduce((sum, ep) => sum + (ep.data.duration ?? 0), 0) / 60
+);
 
 const stats = [
   { label: "Seasons", value: seasons.length.toLocaleString("en-US") },
   { label: "Published Episodes", value: published.length.toLocaleString("en-US") },
   { label: "Total Views", value: formatCompact(totalViews) },
   { label: "Total Likes", value: formatCompact(totalLikes) },
-  { label: "Total Comments", value: formatCompact(totalComments) },
+  { label: "Livestream Minutes", value: totalMinutes.toLocaleString("en-US") },
 ];
 
 const posts = (await getCollection("blog")).sort(

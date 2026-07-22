@@ -1,0 +1,17 @@
+id: gpt-4o
+name: GPT-4o
+provider: OpenAI
+family: GPT
+category: multimodal
+description: OpenAI's flagship multimodal model — text, vision, and audio in one model with fast inference.
+catalogUrl: https://ai.azure.com/catalog/models/gpt-4o
+providerUrl: https://openai.com/gpt-4o
+learnUrl: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models
+openSource: false
+status: active
+episodes:
+  - s1-e01-2025-03-11
+  - s2-e01-2025-06-16
+statusUpdatedAt: '2026-07-22'
+provenance: seed:manual-curation
+publisherUrl: https://ai.azure.com/catalog/publishers/azure-openai

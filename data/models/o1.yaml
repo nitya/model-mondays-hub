@@ -1,0 +1,17 @@
+id: o1
+name: o1
+provider: OpenAI
+family: o-series
+category: reasoning
+description: OpenAI's reasoning model that thinks before answering, excelling at math, science, and complex logic.
+catalogUrl: https://ai.azure.com/catalog/models/o1
+providerUrl: https://openai.com/o1
+learnUrl: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#o1-and-o1-mini-models
+openSource: false
+status: active
+episodes:
+  - s1-e02-2025-03-18
+  - s2-e01-2025-06-16
+statusUpdatedAt: '2026-07-22'
+provenance: seed:manual-curation
+publisherUrl: https://ai.azure.com/catalog/publishers/azure-openai

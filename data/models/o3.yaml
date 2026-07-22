@@ -1,0 +1,16 @@
+id: o3
+name: o3
+provider: OpenAI
+family: o-series
+category: reasoning
+description: Next-generation reasoning model from OpenAI with enhanced chain-of-thought capabilities.
+catalogUrl: https://ai.azure.com/catalog/models/o3
+providerUrl: https://openai.com/o3
+learnUrl: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#o-series-models
+openSource: false
+status: new
+episodes:
+  - s2-e01-2025-06-16
+statusUpdatedAt: '2026-07-22'
+provenance: seed:manual-curation
+publisherUrl: https://ai.azure.com/catalog/publishers/azure-openai

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d1b69"/>
+      <stop offset="50%" style="stop-color:#5b2bd6"/>
+      <stop offset="100%" style="stop-color:#9b59b6"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffd700"/>
+      <stop offset="100%" style="stop-color:#ff8c00"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <!-- Decorative circles -->
+  <circle cx="520" cy="80" r="120" fill="rgba(255,255,255,0.03)"/>
+  <circle cx="100" cy="300" r="80" fill="rgba(255,255,255,0.03)"/>
+  <circle cx="400" cy="280" r="60" fill="rgba(255,215,0,0.05)"/>
+  <!-- Grid pattern hint -->
+  <path d="M0 120 h640 M0 240 h640 M160 0 v360 M320 0 v360 M480 0 v360" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <!-- Model icon -->
+  <g transform="translate(280, 100)">
+    <rect x="0" y="0" width="80" height="80" rx="16" fill="rgba(255,255,255,0.1)" stroke="url(#accent)" stroke-width="2"/>
+    <circle cx="25" cy="30" r="6" fill="#ffd700"/>
+    <circle cx="55" cy="30" r="6" fill="#ffd700"/>
+    <circle cx="40" cy="55" r="6" fill="#ffd700"/>
+    <line x1="25" y1="30" x2="55" y2="30" stroke="#ffd700" stroke-width="1.5" opacity="0.6"/>
+    <line x1="25" y1="30" x2="40" y2="55" stroke="#ffd700" stroke-width="1.5" opacity="0.6"/>
+    <line x1="55" y1="30" x2="40" y2="55" stroke="#ffd700" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  <!-- Title -->
+  <text x="320" y="230" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="28" font-weight="700" fill="white">Model Mondays</text>
+  <text x="320" y="265" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" fill="rgba(255,255,255,0.7)">Build your Model IQ, one Monday at a time</text>
+  <!-- Accent bar -->
+  <rect x="250" y="290" width="140" height="3" rx="1.5" fill="url(#accent)"/>
+  <!-- Microsoft branding hint -->
+  <text x="320" y="330" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="11" fill="rgba(255,255,255,0.4)">Microsoft Reactor · Weekly AI Series</text>
+</svg>

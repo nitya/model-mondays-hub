@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://model-mondays-hub/schema/model.schema.json",
+  "title": "Model",
+  "description": "An AI model referenced in Model Mondays episodes or transcripts.",
+  "type": "object",
+  "required": ["id", "name", "provider"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Slug identifier, matches the YAML filename without extension.",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the model (e.g. 'GPT-4o', 'Phi-4', 'Command R+')."
+    },
+    "provider": {
+      "type": "string",
+      "description": "Organization/company that created the model."
+    },
+    "family": {
+      "type": "string",
+      "description": "Model family (e.g. 'GPT', 'Phi', 'Llama', 'Command')."
+    },
+    "category": {
+      "type": "string",
+      "enum": ["language", "reasoning", "vision", "multimodal", "embedding", "speech", "image-generation", "code", "forecasting", "small-language"],
+      "description": "Primary capability category."
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of the model's purpose and strengths."
+    },
+    "catalogUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the model card on ai.azure.com/catalog/models/<model-name>."
+    },
+    "publisherUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the publisher/provider page on ai.azure.com/catalog/publishers/<provider>."
+    },
+    "providerUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the provider's own model page (external)."
+    },
+    "learnUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to relevant Microsoft Learn documentation."
+    },
+    "parameters": {
+      "type": "string",
+      "description": "Model size (e.g. '7B', '70B', '1T')."
+    },
+    "openSource": {
+      "type": "boolean",
+      "description": "Whether the model weights are openly available."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "new", "deprecated", "retired"],
+      "default": "active",
+      "description": "Lifecycle status: 'new' (added in last 30 days), 'active', 'deprecated' (scheduled removal), 'retired' (removed from catalog)."
+    },
+    "statusUpdatedAt": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the status was last checked/updated."
+    },
+    "episodes": {
+      "type": "array",
+      "description": "Episode IDs where this model is discussed.",
+      "items": { "type": "string" }
+    },
+    "provenance": {
+      "type": "string",
+      "description": "How this record was sourced."
+    }
+  }
+}

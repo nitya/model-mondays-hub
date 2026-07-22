@@ -1,0 +1,17 @@
+id: florence-2
+name: Florence-2
+provider: Microsoft
+family: Florence
+category: vision
+description: Microsoft's foundation vision model for tasks like captioning, object detection, and visual grounding.
+catalogUrl: https://ai.azure.com/catalog/models/Florence-2-large
+providerUrl: https://www.microsoft.com/en-us/research/project/projectflorence/
+learnUrl: https://learn.microsoft.com/en-us/azure/ai/foundry/models/collections/microsoft
+openSource: true
+status: active
+episodes:
+  - s1-e04-2025-04-01
+  - s2-e10-2025-08-19
+statusUpdatedAt: '2026-07-22'
+provenance: seed:manual-curation
+publisherUrl: https://ai.azure.com/catalog/publishers/microsoft

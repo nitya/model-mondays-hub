@@ -1,0 +1,16 @@
+id: mistral-large
+name: Mistral Large
+provider: Mistral AI
+family: Mistral
+category: language
+description: Mistral's flagship model for complex reasoning, multilingual tasks, and code generation.
+catalogUrl: https://ai.azure.com/catalog/models/Mistral-Large-2
+providerUrl: https://mistral.ai/technology/
+learnUrl: https://learn.microsoft.com/en-us/azure/ai/foundry/models/collections/mistral-ai
+openSource: false
+status: active
+episodes:
+  - s1-e07-2025-04-21
+statusUpdatedAt: '2026-07-22'
+provenance: seed:manual-curation
+publisherUrl: https://ai.azure.com/catalog/publishers/mistral-ai
