@@ -2,8 +2,8 @@
 id: s2-e02-2025-06-26
 title: Model Mondays - Model Context Protocol
 description: >-
-  Understand how MCP servers' structure and manage context to ensure AI models deliver accurate and relevant outputs,
-  making them scalable.
+  Understand how MCP servers' structure and manage context to ensure AI models deliver accurate and
+  relevant outputs, making them scalable.
 season: season-2
 publishDate: '2025-06-26'
 status: published
@@ -24,10 +24,3 @@ metrics:
 transcriptPath: data/transcripts/model-mondays-model-context-protocol.md
 chapters: []
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

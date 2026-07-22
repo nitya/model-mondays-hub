@@ -2,9 +2,9 @@
 id: s2-e06-2025-07-22
 title: Model Mondays - Research & Innovation
 description: >-
-  Azure AI Foundry Labs is a hub to explore cutting-edge research from Microsoft. Join us as we talk to SeokJin Han and
-  Saumil Shrivastava about two key projects – the MCP Server for Azure AI Foundry, and the Magentic-UI for advancing
-  research on human-in-the-loop experiences with AI.
+  Azure AI Foundry Labs is a hub to explore cutting-edge research from Microsoft. Join us as we talk
+  to SeokJin Han and Saumil Shrivastava about two key projects – the MCP Server for Azure AI
+  Foundry, and the Magentic-UI for advancing research on human-in-the-loop experiences with AI.
 season: season-2
 publishDate: '2025-07-22'
 status: published
@@ -65,10 +65,3 @@ chapters:
   - time: '41:56'
     label: '- Closing Remarks & How to Get Involved'
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

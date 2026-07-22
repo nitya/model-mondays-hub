@@ -2,8 +2,8 @@
 id: s3-e11-2026-03-17
 title: Model Mondays - What's New In Foundry IQ?
 description: >-
-  Foundry IQ is a unified knowledge layer powered by Azure AI Search, allowing agents to query and retrieve data for
-  context engineering.
+  Foundry IQ is a unified knowledge layer powered by Azure AI Search, allowing agents to query and
+  retrieve data for context engineering.
 season: season-3
 publishDate: '2026-03-17'
 status: published
@@ -86,10 +86,3 @@ chapters:
   - time: '40:33'
     label: Session Wrap‑Up & Thanks
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

@@ -34,10 +34,6 @@ const {
 } = Astro.props;
 
 const thumbnailUrl = videoId ? `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg` : undefined;
-const isUpcoming = !videoId;
-const bannerUrl = isUpcoming
-  ? `${Astro.url.origin}${import.meta.env.BASE_URL}images/model-mondays-banner.png`
-  : undefined;
 const compactNumber = new Intl.NumberFormat("en-US", {
   notation: "compact",
   maximumFractionDigits: 1,
@@ -57,12 +53,6 @@ const metaItems = [publishDate, viewLabel, meta].filter((item) => Boolean(item))
   {thumbnailUrl && (
     <div class="mm-card__media">
       <img src={thumbnailUrl} alt="" loading="lazy" />
-    </div>
-  )}
-  {!thumbnailUrl && (
-    <div class="mm-card__media mm-card__media--placeholder">
-      <img src={bannerUrl} alt="Model Mondays" loading="lazy" />
-      <span class="mm-card__new-badge">NEW</span>
     </div>
   )}
 
@@ -105,31 +95,10 @@ const metaItems = [publishDate, viewLabel, meta].filter((item) => Boolean(item))
     transform: translateY(-2px);
   }
   .mm-card__media {
-    position: relative;
     aspect-ratio: 16 / 9;
     background: var(--mm-accent-soft);
     border-bottom: 1px solid var(--mm-border);
     overflow: hidden;
-  }
-  .mm-card__media--placeholder {
-    background: linear-gradient(135deg, var(--mm-accent-soft) 0%, color-mix(in srgb, var(--mm-accent) 20%, transparent) 100%);
-  }
-  .mm-card__media--placeholder img {
-    opacity: 0.85;
-  }
-  .mm-card__new-badge {
-    position: absolute;
-    top: 0.6rem;
-    right: 0.6rem;
-    padding: 0.2em 0.65em;
-    border-radius: 4px;
-    background: var(--mm-accent);
-    color: var(--mm-accent-contrast);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   }
   .mm-card__media img {
     width: 100%;

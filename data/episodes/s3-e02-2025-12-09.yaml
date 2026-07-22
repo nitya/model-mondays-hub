@@ -2,8 +2,8 @@
 id: s3-e02-2025-12-09
 title: Model Mondays - AI Red Teaming Agent
 description: >-
-  Assessing risks to your models and agentic AI apps is critical to building trustworthy AI. Join us as we talk to
-  Minsoo Thigpen about the AI Red Teaming Agent on Microsoft Foundry
+  Assessing risks to your models and agentic AI apps is critical to building trustworthy AI. Join us
+  as we talk to Minsoo Thigpen about the AI Red Teaming Agent on Microsoft Foundry
 season: season-3
 publishDate: '2025-12-09'
 status: published
@@ -73,10 +73,3 @@ chapters:
   - time: '1:13:05'
     label: '– Wrap-Up: Feedback and Future Sessions'
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

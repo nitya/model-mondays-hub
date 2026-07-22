@@ -2,13 +2,15 @@
 id: s3-e05-2026-01-27
 title: Model Mondays - Code-First with Responses API
 description: >-
-  Join us for this special double-header tech spotlight where we cover two key topics for agentic AI development. 
+  Join us for this special double-header tech spotlight where we cover two key topics for agentic AI
+  development. 
    
-  First, Dave Voutila joins us to talk about Fine Tuning in Microsoft Foundry. Learn about the latest features and tools
-  to simplify the developer experience for model customization. 
+  First, Dave Voutila joins us to talk about Fine Tuning in Microsoft Foundry. Learn about the
+  latest features and tools to simplify the developer experience for model customization. 
    
-  Next, Guy Gregory joins us for a deep dive into the Responses API. Learn how it unifies the experience across prior
-  chat completion and assistant API capabilities to streamline agent creation in Microsoft Foundry.
+  Next, Guy Gregory joins us for a deep dive into the Responses API. Learn how it unifies the
+  experience across prior chat completion and assistant API capabilities to streamline agent
+  creation in Microsoft Foundry.
 season: season-3
 publishDate: '2026-01-27'
 status: published
@@ -91,10 +93,3 @@ chapters:
   - time: '1:01:14'
     label: – Final Thanks & Call to Action
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

@@ -2,8 +2,8 @@
 id: s3-e04-2026-01-12
 title: Model Mondays - Microsoft Agent Framework
 description: >-
-  Want to build scalable AI solutions with multi-agent orchestration on Microsoft Foundry? Join us as we talk to experts
-  on the features and usage of Microsoft Agent Framework
+  Want to build scalable AI solutions with multi-agent orchestration on Microsoft Foundry? Join us
+  as we talk to experts on the features and usage of Microsoft Agent Framework
 season: season-3
 publishDate: '2026-01-12'
 status: published
@@ -54,10 +54,3 @@ chapters:
   - time: '52:07'
     label: – Closing Remarks & Community Links
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

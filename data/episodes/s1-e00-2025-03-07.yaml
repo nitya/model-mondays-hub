@@ -2,10 +2,10 @@
 id: s1-e00-2025-03-07
 title: 'Model Mondays: Coming Soon!'
 description: >-
-  Building efficient generative AI applications starts with making the right model choice! With 1800+ models in the
-  model catalog, Azure AI Foundry provides the best AI customization options for your needs. But how do you make the
-  right choice? Join us for Model Mondays as we unpack the features & functionality of a model each week – with the
-  experts who know them best.
+  Building efficient generative AI applications starts with making the right model choice! With
+  1800+ models in the model catalog, Azure AI Foundry provides the best AI customization options for
+  your needs. But how do you make the right choice? Join us for Model Mondays as we unpack the
+  features & functionality of a model each week – with the experts who know them best.
 season: season-1
 publishDate: '2025-03-07'
 status: published
@@ -25,10 +25,3 @@ metrics:
 transcriptPath: data/transcripts/model-mondays-coming-soon.md
 chapters: []
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

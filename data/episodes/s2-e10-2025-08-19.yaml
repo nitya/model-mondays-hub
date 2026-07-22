@@ -2,11 +2,12 @@
 id: s2-e10-2025-08-19
 title: Model Mondays - Document Processing
 description: >-
-  We’re joined by Mistral AI, the European AI innovator behind Mistral Doc AI, now available as a direct from Azure
-  model in Azure AI Foundry. We’ll dive into how this multimodal, multilingual document processing model unlocks complex
-  unstructured content—turning scanned PDFs, images, and handwritten forms into structured, actionable data. From AI
-  sovereignty to real-world use cases across industries, Mistral will share how Document AI is helping organizations
-  transform their document workflows at scale.
+  We’re joined by Mistral AI, the European AI innovator behind Mistral Doc AI, now available as a
+  direct from Azure model in Azure AI Foundry. We’ll dive into how this multimodal, multilingual
+  document processing model unlocks complex unstructured content—turning scanned PDFs, images, and
+  handwritten forms into structured, actionable data. From AI sovereignty to real-world use cases
+  across industries, Mistral will share how Document AI is helping organizations transform their
+  document workflows at scale.
 season: season-2
 publishDate: '2025-08-19'
 status: published
@@ -48,10 +49,3 @@ chapters:
   - time: '46:22'
     label: '- Stay Connected & Feedback'
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

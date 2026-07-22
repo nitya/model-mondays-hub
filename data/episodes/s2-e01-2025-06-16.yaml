@@ -2,8 +2,8 @@
 id: s2-e01-2025-06-16
 title: Model Mondays - Advanced Reasoning
 description: >-
-  Learn advanced techniques to improve AI's reasoning and problem-solving skills, enabling smarter and more efficient
-  decision-making.
+  Learn advanced techniques to improve AI's reasoning and problem-solving skills, enabling smarter
+  and more efficient decision-making.
 season: season-2
 publishDate: '2025-06-16'
 status: published
@@ -24,10 +24,3 @@ metrics:
 transcriptPath: data/transcripts/model-mondays-advanced-reasoning.md
 chapters: []
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

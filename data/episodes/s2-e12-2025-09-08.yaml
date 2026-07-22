@@ -2,8 +2,8 @@
 id: s2-e12-2025-09-08
 title: Model Mondays - Models & Observability
 description: >-
-  Observability is about instrumenting AI apps to collect signals that provide insight into model behavior & performance
-  across the GenAIOps lifecycle.
+  Observability is about instrumenting AI apps to collect signals that provide insight into model
+  behavior & performance across the GenAIOps lifecycle.
 season: season-2
 publishDate: '2025-09-08'
 status: published
@@ -69,10 +69,3 @@ chapters:
   - time: '51:09'
     label: '- Final Episode Preview and AMA Reminder'
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

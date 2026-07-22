@@ -2,8 +2,8 @@
 id: s2-e11-2025-08-25
 title: Model Mondays - Speech Playgrounds
 description: >-
-  Want to explore speech capabilities (like text to speech, speech to text, translation etc.) in your browser before
-  switching to code? Try the Azure AI Foundry Speech playground.
+  Want to explore speech capabilities (like text to speech, speech to text, translation etc.) in
+  your browser before switching to code? Try the Azure AI Foundry Speech playground.
 season: season-2
 publishDate: '2025-08-25'
 status: published
@@ -75,10 +75,3 @@ chapters:
   - time: '44:00'
     label: '- Final Reminders & AMA Details'
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview
