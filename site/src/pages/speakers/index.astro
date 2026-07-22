@@ -2,7 +2,7 @@
 // site/src/pages/speakers/index.astro
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Card from "../../components/Card.astro";
+import SpeakerCard from "../../components/SpeakerCard.astro";
 import Gallery from "../../components/Gallery.astro";
 
 const base = import.meta.env.BASE_URL;
@@ -13,19 +13,32 @@ const speakers = (await getCollection("speakers")).sort((a, b) =>
 
 <BaseLayout title="Speakers" description="Guests and hosts of Model Mondays.">
   <h1>Speakers</h1>
-  <p class="muted">{speakers.length} speaker{speakers.length === 1 ? "" : "s"}.</p>
+  <p class="muted">{speakers.length} speaker{speakers.length === 1 ? "" : "s"} — hosts, guests, and producers.</p>
 
   <Gallery tagOptions={[]} sortable={false} gridId="speaker-grid">
-    <div class="grid" id="speaker-grid">
+    <div class="speaker-grid" id="speaker-grid">
       {speakers.map((s) => (
-        <Card
+        <SpeakerCard
           href={`${base}speakers/${s.id}/`}
-          title={s.data.name}
-          subtitle={[s.data.title, s.data.company].filter(Boolean).join(" · ") || undefined}
+          name={s.data.name}
+          title={s.data.title}
+          company={s.data.company}
+          role={s.data.role}
+          avatar={s.data.avatar}
+          linkedin={s.data.linkedin}
+          github={s.data.github}
           searchText={`${s.data.name} ${s.data.company ?? ""} ${s.data.title ?? ""}`.toLowerCase()}
           sortTitle={s.data.name.toLowerCase()}
         />
       ))}
     </div>
   </Gallery>
+
+  <style>
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.25rem;
+    }
+  </style>
 </BaseLayout>
