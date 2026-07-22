@@ -4,5 +4,6 @@ title: Principal Cloud Advocate
 company: Microsoft
 role: host
 avatar: https://developer.microsoft.com/reactor/mediahandler/speakers/images/speaker_images/LeeStott_20241205133617202.jpg
-linkedin: https://linkedin.com/in/intleestott
-github: https://github.com/leestott
+links:
+  linkedin: https://linkedin.com/in/intleestott
+  github: https://github.com/leestott

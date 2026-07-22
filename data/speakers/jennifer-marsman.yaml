@@ -4,4 +4,5 @@ company: Microsoft
 role: guest
 avatar: >-
   https://developer.microsoft.com/reactor/mediahandler/speakers/images/speaker_images/JenniferMarsman_20250501122132628.jpg
-linkedin: https://linkedin.com/in/jennifermarsman
+links:
+  linkedin: https://linkedin.com/in/jennifermarsman
