@@ -40,7 +40,7 @@ jobs:
         run: npm ci
 
       - name: Install site dependencies
-        run: npm install --no-audit --no-fund
+        run: rm -f package-lock.json && npm install --no-audit --no-fund
         working-directory: site
 
       - name: Validate data
