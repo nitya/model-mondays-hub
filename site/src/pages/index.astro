@@ -77,11 +77,12 @@ const latestPost = posts[0];
   </section>
 
   {latestPost && (
-    <section class="section">
-      <h2>Latest from the blog</h2>
-      <a class="card" href={`${base}blog/${latestPost.id}/`}>
+    <section class="section blog-spotlight">
+      <h2>📰 Latest from the blog</h2>
+      <a class="blog-spotlight__card" href={`${base}blog/${latestPost.id}/`}>
         <h3>{latestPost.data.title}</h3>
         {latestPost.data.summary && <p class="muted">{latestPost.data.summary}</p>}
+        <span class="blog-spotlight__cta">Read more →</span>
       </a>
     </section>
   )}
@@ -159,5 +160,57 @@ const latestPost = posts[0];
     }
     .section { margin-top: 3rem; }
     .section h2 { margin-bottom: 1.25rem; }
+
+    /* Blog spotlight — elevated, gradient border, breathing room */
+    .blog-spotlight {
+      margin-top: 3rem;
+      padding: 2rem 2rem 2.25rem;
+      border-radius: var(--mm-radius-lg);
+      background: var(--mm-accent-soft);
+      border: 1px solid var(--mm-border);
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-spotlight::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--mm-accent-gradient);
+    }
+    .blog-spotlight h2 {
+      margin: 0 0 1rem;
+    }
+    .blog-spotlight__card {
+      display: block;
+      padding: 1.25rem 1.5rem;
+      background: var(--mm-bg-elevated);
+      border: 1px solid var(--mm-border);
+      border-radius: var(--mm-radius);
+      box-shadow: var(--mm-shadow-sm);
+      color: inherit;
+      text-decoration: none;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .blog-spotlight__card:hover {
+      box-shadow: var(--mm-shadow);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+    .blog-spotlight__card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.15rem;
+    }
+    .blog-spotlight__card p {
+      margin: 0 0 0.75rem;
+      font-size: 0.92rem;
+    }
+    .blog-spotlight__cta {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--mm-accent);
+    }
   </style>
 </BaseLayout>
