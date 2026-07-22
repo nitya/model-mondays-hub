@@ -25,8 +25,8 @@ const speakers = (await getCollection("speakers")).sort((a, b) =>
           company={s.data.company}
           role={s.data.role}
           avatar={s.data.avatar}
-          linkedin={s.data.linkedin}
-          github={s.data.github}
+          linkedin={s.data.links?.linkedin}
+          github={s.data.links?.github}
           searchText={`${s.data.name} ${s.data.company ?? ""} ${s.data.title ?? ""}`.toLowerCase()}
           sortTitle={s.data.name.toLowerCase()}
         />
