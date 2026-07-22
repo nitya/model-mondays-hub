@@ -15,7 +15,9 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - jeff-boudier
-tags: []
+tags:
+  - hugging-face
+  - foundry-toolkit
 duration: 4024
 metrics:
   views: 929

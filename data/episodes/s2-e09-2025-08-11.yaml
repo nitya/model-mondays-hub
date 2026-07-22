@@ -16,7 +16,9 @@ speakers:
   - nitya-narasimhan
   - mona-whalin
   - sukrit-chatterjee
-tags: []
+tags:
+  - foundry-toolkit
+  - agent-365
 duration: 3205
 metrics:
   views: 2518

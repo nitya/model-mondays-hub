@@ -22,7 +22,8 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - amir-zur
-tags: []
+tags:
+  - foundry-toolkit
 duration: 4469
 metrics:
   views: 5804

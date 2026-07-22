@@ -17,7 +17,8 @@ segmentType:
   - tech-spotlight
 speakers:
   - nitya-narasimhan
-tags: []
+tags:
+  - github-copilot
 duration: 1951
 metrics:
   views: 1687

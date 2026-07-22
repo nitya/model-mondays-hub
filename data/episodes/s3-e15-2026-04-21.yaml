@@ -23,7 +23,10 @@ speakers:
   - korey-stegared-pace
   - srikumar-nair
   - jeff-boudier
-tags: []
+tags:
+  - foundry-toolkit
+  - github-copilot
+  - agent-365
 duration: 3101
 metrics:
   views: 1731

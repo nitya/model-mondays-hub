@@ -23,7 +23,10 @@ segmentType:
 speakers:
   - carlotta-castelluccio
   - farzad-sunavala
-tags: []
+tags:
+  - hugging-face
+  - foundry-toolkit
+  - work-iq
 duration: 3854
 metrics:
   views: 1042

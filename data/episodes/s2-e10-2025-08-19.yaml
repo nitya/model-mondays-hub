@@ -17,7 +17,8 @@ segmentType:
   - customer-story
 speakers:
   - nitya-narasimhan
-tags: []
+tags:
+  - foundry-toolkit
 duration: 2890
 metrics:
   views: 1291

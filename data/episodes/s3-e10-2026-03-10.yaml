@@ -17,7 +17,8 @@ segmentType:
 speakers:
   - carlotta-castelluccio
   - bala-venkataraman
-tags: []
+tags:
+  - foundry-toolkit
 duration: 3448
 metrics:
   views: 858

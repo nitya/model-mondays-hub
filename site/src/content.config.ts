@@ -119,4 +119,26 @@ const transcripts = defineCollection({
   schema: z.object({}).passthrough(),
 });
 
-export const collections = { speakers, seasons, tags, episodes, blog, transcripts };
+const models = defineCollection({
+  loader: glob({ pattern: "**/*.yaml", base: "../data/models" }),
+  schema: z.object({
+    id: z.string(),
+    name: z.string(),
+    provider: z.string(),
+    family: z.string().optional(),
+    category: z.enum(["language", "reasoning", "vision", "multimodal", "embedding", "speech", "image-generation", "code", "forecasting", "small-language"]).optional(),
+    description: z.string().optional(),
+    catalogUrl: z.string().url().optional(),
+    publisherUrl: z.string().url().optional(),
+    providerUrl: z.string().url().optional(),
+    learnUrl: z.string().url().optional(),
+    parameters: z.string().optional(),
+    openSource: z.boolean().optional(),
+    status: z.enum(["active", "new", "deprecated", "retired"]).default("active"),
+    statusUpdatedAt: z.coerce.date().optional(),
+    episodes: z.array(z.string()).default([]),
+    provenance: z.string().optional(),
+  }),
+});
+
+export const collections = { speakers, seasons, tags, episodes, blog, transcripts, models };

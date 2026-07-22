@@ -19,7 +19,10 @@ segmentType:
 speakers:
   - april-speight
   - rong-lu
-tags: []
+tags:
+  - fireworks-ai
+  - mcp-servers
+  - foundry-toolkit
 duration: 3955
 metrics:
   views: 781

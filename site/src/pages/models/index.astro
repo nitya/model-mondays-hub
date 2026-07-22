@@ -1,0 +1,131 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+const models = (await getCollection("models")).sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const byCategory = new Map<string, typeof models>();
+for (const m of models) {
+  const cat = m.data.category ?? "other";
+  if (!byCategory.has(cat)) byCategory.set(cat, []);
+  byCategory.get(cat)!.push(m);
+}
+
+const categoryLabels: Record<string, string> = {
+  language: "Language Models",
+  reasoning: "Reasoning Models",
+  vision: "Vision Models",
+  multimodal: "Multimodal Models",
+  embedding: "Embedding Models",
+  speech: "Speech Models",
+  "image-generation": "Image Generation",
+  code: "Code Models",
+  forecasting: "Forecasting Models",
+  "small-language": "Small Language Models",
+  other: "Other",
+};
+
+const statusBadge = (status: string) => {
+  switch (status) {
+    case "new": return "🆕";
+    case "deprecated": return "⚠️";
+    case "retired": return "🚫";
+    default: return "";
+  }
+};
+---
+
+<BaseLayout title="Models" description="AI models discussed on Model Mondays.">
+  <h1>Models</h1>
+  <p class="muted">{models.length} AI models tracked across {byCategory.size} categories — linked to Azure AI catalog.</p>
+
+  {[...byCategory.entries()].map(([cat, catModels]) => (
+    <section class="model-category">
+      <h2>{categoryLabels[cat] ?? cat}</h2>
+      <div class="model-grid">
+        {catModels.map((m) => (
+          <div class="model-card card">
+            <div class="model-card__header">
+              <h3 class="model-card__name">
+                {statusBadge(m.data.status)} {m.data.name}
+              </h3>
+              <span class="model-card__provider">{m.data.provider}</span>
+            </div>
+            {m.data.description && <p class="model-card__desc muted">{m.data.description}</p>}
+            <div class="model-card__meta">
+              {m.data.parameters && <span class="meta-badge">{m.data.parameters}</span>}
+              {m.data.openSource && <span class="meta-badge">Open Source</span>}
+              {m.data.status !== "active" && <span class={`pill pill--${m.data.status === "new" ? "model" : "technology"}`}>{m.data.status}</span>}
+            </div>
+            <div class="model-card__links">
+              {m.data.catalogUrl && <a href={m.data.catalogUrl} target="_blank" rel="noopener">Azure Catalog</a>}
+              {m.data.publisherUrl && <a href={m.data.publisherUrl} target="_blank" rel="noopener">Publisher</a>}
+              {m.data.learnUrl && <a href={m.data.learnUrl} target="_blank" rel="noopener">Learn</a>}
+              {m.data.providerUrl && <a href={m.data.providerUrl} target="_blank" rel="noopener">Provider</a>}
+            </div>
+            {m.data.episodes.length > 0 && (
+              <div class="model-card__episodes">
+                <span class="muted">Episodes: </span>
+                {m.data.episodes.map((epId, i) => (
+                  <>{i > 0 && ", "}<a href={`${base}episodes/${epId}/`}>{epId}</a></>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  ))}
+</BaseLayout>
+
+<style>
+  .model-category { margin-top: 2rem; }
+  .model-category h2 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+  .model-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .model-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1rem 1.1rem;
+  }
+  .model-card__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .model-card__name {
+    margin: 0;
+    font-size: 1.05rem;
+  }
+  .model-card__provider {
+    font-size: 0.8rem;
+    color: var(--mm-text-muted);
+    white-space: nowrap;
+  }
+  .model-card__desc {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+  .model-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .model-card__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+  }
+  .model-card__episodes {
+    font-size: 0.82rem;
+    margin-top: 0.2rem;
+  }
+</style>

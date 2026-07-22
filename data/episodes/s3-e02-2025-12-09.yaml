@@ -15,7 +15,8 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - minsoo-thigpen
-tags: []
+tags:
+  - foundry-toolkit
 duration: 4464
 metrics:
   views: 1100

@@ -17,7 +17,10 @@ speakers:
   - nitya-narasimhan
   - sandeep-sen
   - kurt-demaagd
-tags: []
+tags:
+  - mcp-servers
+  - foundry-toolkit
+  - github-copilot
 duration: 3215
 metrics:
   views: 1301

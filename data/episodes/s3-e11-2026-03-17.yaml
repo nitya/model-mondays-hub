@@ -14,7 +14,8 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - sebastian-kohlmeier
-tags: []
+tags:
+  - foundry-toolkit
 duration: 2605
 metrics:
   views: 981

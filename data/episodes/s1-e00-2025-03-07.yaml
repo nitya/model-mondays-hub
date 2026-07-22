@@ -15,7 +15,8 @@ segmentType:
   - tech-spotlight
 speakers:
   - nitya-narasimhan
-tags: []
+tags:
+  - foundry-toolkit
 duration: 105
 metrics:
   views: 418

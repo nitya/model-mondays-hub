@@ -14,7 +14,8 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - den-delimarsky
-tags: []
+tags:
+  - mcp-servers
 duration: 1831
 metrics:
   views: 1064

@@ -23,7 +23,9 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - yash-lara
-tags: []
+tags:
+  - foundry-toolkit
+  - observability
 duration: 4029
 metrics:
   views: 1924

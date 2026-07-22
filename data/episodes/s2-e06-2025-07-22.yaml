@@ -19,7 +19,9 @@ speakers:
   - saumil-shrivastava
   - steve-frederickson
   - zachary-meierhofer
-tags: []
+tags:
+  - mcp-servers
+  - foundry-toolkit
 duration: 2850
 metrics:
   views: 605

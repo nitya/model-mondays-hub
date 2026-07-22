@@ -17,7 +17,8 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - leo-yao
-tags: []
+tags:
+  - foundry-toolkit
 duration: 2023
 metrics:
   views: 1458

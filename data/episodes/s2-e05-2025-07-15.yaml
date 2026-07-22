@@ -16,7 +16,8 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - dave-voutila
-tags: []
+tags:
+  - foundry-toolkit
 duration: 2746
 metrics:
   views: 1220

@@ -14,7 +14,9 @@ segmentType:
 speakers:
   - korey-stegared-pace
   - shawn-henry
-tags: []
+tags:
+  - foundry-toolkit
+  - agent-365
 duration: 3343
 metrics:
   views: 2879

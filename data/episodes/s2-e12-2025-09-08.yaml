@@ -15,7 +15,8 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - han-che
-tags: []
+tags:
+  - observability
 duration: 3267
 metrics:
   views: 1013

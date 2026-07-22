@@ -17,7 +17,8 @@ speakers:
   - lee-stott
   - seokjin-han
   - filisha-shah
-tags: []
+tags:
+  - cohere
 duration: 2579
 metrics:
   views: 2791

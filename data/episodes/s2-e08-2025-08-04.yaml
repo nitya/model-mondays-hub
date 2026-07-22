@@ -15,7 +15,8 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - maanav-dalal
-tags: []
+tags:
+  - foundry-toolkit
 duration: 3095
 metrics:
   views: 1299

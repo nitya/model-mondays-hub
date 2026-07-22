@@ -38,7 +38,10 @@ const episodeCards = episodes.map((ep) => {
 ---
 
 <BaseLayout title="Episodes" description="All Model Mondays episodes.">
-  <h1>Episodes</h1>
+  <div class="page-header">
+    <h1>Episodes</h1>
+    <a href={`${base}episodes/timeline/`} class="button">📈 Timeline</a>
+  </div>
   <p class="muted">{episodes.length} episode{episodes.length === 1 ? "" : "s"} — published and upcoming.</p>
 
   <Gallery tagOptions={tagOptions} gridId="episode-grid">

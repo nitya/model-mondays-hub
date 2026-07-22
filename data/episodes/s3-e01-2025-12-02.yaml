@@ -17,7 +17,8 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - sanjeev-jagtap
-tags: []
+tags:
+  - foundry-toolkit
 duration: 3071
 metrics:
   views: 552

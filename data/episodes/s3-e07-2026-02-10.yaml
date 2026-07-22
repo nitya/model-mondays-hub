@@ -17,7 +17,8 @@ segmentType:
 speakers:
   - bethany-jepchumba
   - william-liang
-tags: []
+tags:
+  - foundry-toolkit
 duration: 3099
 metrics:
   views: 900

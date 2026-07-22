@@ -16,7 +16,8 @@ segmentType:
 speakers:
   - lee-stott
   - maanav-dalal
-tags: []
+tags:
+  - foundry-toolkit
 duration: 3355
 metrics:
   views: 776

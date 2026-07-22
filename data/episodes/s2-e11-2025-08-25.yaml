@@ -15,7 +15,8 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - utkarsh-maheswari
-tags: []
+tags:
+  - foundry-toolkit
 duration: 2780
 metrics:
   views: 727

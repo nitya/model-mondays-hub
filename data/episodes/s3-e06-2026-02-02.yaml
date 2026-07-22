@@ -18,7 +18,8 @@ speakers:
   - bethany-jepchumba
   - dave-voutila
   - guy-gregory
-tags: []
+tags:
+  - foundry-toolkit
 duration: 2494
 metrics:
   views: 735

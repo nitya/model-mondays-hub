@@ -23,7 +23,8 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - guy-gregory
-tags: []
+tags:
+  - foundry-toolkit
 duration: 3797
 metrics:
   views: 912
