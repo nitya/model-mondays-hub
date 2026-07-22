@@ -14,7 +14,7 @@ body:
         Comment on this issue with one of the following commands to trigger
         an agent-driven data update. The `.github/workflows/issue-command.yml`
         workflow watches for these and assigns the issue to the GitHub
-        Copilot coding agent, which runs the matching skill and opens a PR.
+        Copilot cloud agent, which runs the matching skill and opens a PR.
 
         - `update speaker <url-or-name> [title:"..."] [company:"..."]`
         - `update episode <youtube-url> [season:season-4] [speakers:a,b] [tags:a,b]`

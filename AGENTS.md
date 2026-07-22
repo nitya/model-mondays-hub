@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Operating instructions for any AI agent (GitHub Copilot coding agent, or
+Operating instructions for any AI agent (GitHub Copilot cloud agent, or
 otherwise) working in this repository.
 
 ## Mental model: data is truth, site is a view

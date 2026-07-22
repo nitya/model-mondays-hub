@@ -28,5 +28,5 @@ from CLI, npm scripts, and GitHub Actions workflows alike.
 4. **Idempotent merges.** Running a skill again on an existing record patches
    only the fields you pass and preserves the rest — safe to re-run.
 5. **PR, not direct commit to main.** Skills are invoked by the GitHub
-   Copilot coding agent (see `.github/workflows/issue-command.yml`), which
+   Copilot cloud agent (see `.github/workflows/issue-command.yml`), which
    opens a PR with the data + regenerated site rather than pushing directly.

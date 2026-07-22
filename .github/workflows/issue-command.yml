@@ -12,15 +12,15 @@ name: issue-command
 # ---------------------------------------------------------------------------
 # MANUAL SETUP REQUIRED before this workflow can assign issues to Copilot:
 #
-#   1. Enable the Copilot coding agent for this repo:
-#      Settings → Copilot → Coding agent → turn it on for this repository.
+#   1. Enable the Copilot cloud agent for this repo:
+#      Settings → Copilot → enable "Cloud agent" for this repository.
 #      (Requires GitHub Copilot Business/Enterprise, or an individual Pro+
-#      plan with coding agent access.)
+#      plan with cloud agent access.)
 #
 #   2. Assigning an issue to Copilot via the API needs a token with Copilot
 #      agent rights — the default `GITHUB_TOKEN` is NOT sufficient. Create a
 #      fine-grained Personal Access Token (PAT) belonging to a user who has
-#      Copilot coding agent access, with "Issues: write" repo permission,
+#      Copilot cloud agent access, with "Issues: write" repo permission,
 #      and store it as the `COPILOT_ASSIGN_PAT` repository secret.
 #      (Settings → Secrets and variables → Actions → New repository secret.)
 #
@@ -70,7 +70,7 @@ jobs:
             echo "skill=update-series" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Assign issue to Copilot coding agent
+      - name: Assign issue to Copilot cloud agent
         id: assign
         env:
           GH_TOKEN: ${{ secrets.COPILOT_ASSIGN_PAT }}

@@ -3,7 +3,7 @@
 The Model Mondays Hub uses one permanently-open GitHub issue as the entry
 point for agent-driven data updates (speakers, episodes, seasons). Comments
 on this issue trigger `.github/workflows/issue-command.yml`, which assigns
-the issue to the GitHub Copilot coding agent to run the matching skill under
+the issue to the GitHub Copilot cloud agent to run the matching skill under
 `skills/` and open a PR.
 
 ## One-time setup
@@ -38,10 +38,10 @@ comment is parsed and dispatched.
 ## Related manual setup
 
 This flow additionally requires:
-- Enabling the Copilot coding agent for the repo (Settings → Copilot →
-  Coding agent).
+- Enabling the Copilot cloud agent for the repo (Settings → Copilot →
+  Cloud agent).
 - A `COPILOT_ASSIGN_PAT` repository secret (a fine-grained PAT belonging to a
-  user with Copilot coding agent access) so the workflow can assign issues to
+  user with Copilot cloud agent access) so the workflow can assign issues to
   Copilot via the API. Without it, the workflow still posts a comment
   identifying the parsed command so a maintainer can assign the issue to
   Copilot by hand.
