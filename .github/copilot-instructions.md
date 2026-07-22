@@ -40,10 +40,17 @@ explicitly in any PR description that depends on them:
    `build-deploy.yml` workflow handles the rest).
 3. **GitHub Copilot coding agent** — Settings → Copilot → Coding agent must
    be enabled for the repo so `issue-command.yml` can assign work to it.
-4. **Pinned "Data Ops" issue** — create one issue from the "Data Ops" issue
-   template and pin it; `issue-command.yml` only reacts to comments on that
-   specific issue. See `.github/ISSUE_TEMPLATE/` for the template and
-   `skills/README` / `AGENTS.md` for the command syntax.
+4. **`COPILOT_ASSIGN_PAT`** repo secret — a fine-grained PAT belonging to a
+   user with Copilot coding agent access (`Issues: write` permission), used
+   by `issue-command.yml` to assign the Data Ops issue to Copilot via the
+   API (the default `GITHUB_TOKEN` cannot do this). Without it, the workflow
+   still posts a comment identifying the parsed command so a maintainer can
+   assign the issue to Copilot by hand.
+5. **Pinned "Data Ops" issue** — create one issue from the "Data Ops" issue
+   template (carries the `data-ops` label) and pin it; `issue-command.yml`
+   only reacts to comments on issues with that label. See
+   `.github/ISSUE_TEMPLATE/`, `docs/data-ops-issue.md`, and
+   `skills/shared/SKILL.md` / `AGENTS.md` for the command syntax.
 
 ## Style & scope
 
