@@ -98,49 +98,56 @@ const metaItems = [publishDate, viewLabel, meta].filter((item) => Boolean(item))
     gap: 0;
     overflow: hidden;
     padding: 0;
-    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    border-radius: var(--mm-radius-lg);
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
   }
   .mm-card:hover {
     text-decoration: none;
-    transform: translateY(-2px);
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: var(--mm-shadow-lg);
   }
   .mm-card__media {
     position: relative;
     aspect-ratio: 16 / 9;
     background: var(--mm-accent-soft);
-    border-bottom: 1px solid var(--mm-border);
     overflow: hidden;
   }
   .mm-card__media--placeholder {
-    background: linear-gradient(135deg, var(--mm-accent-soft) 0%, color-mix(in srgb, var(--mm-accent) 20%, transparent) 100%);
+    background: linear-gradient(135deg, var(--mm-accent-soft) 0%, color-mix(in srgb, var(--mm-accent-2) 15%, transparent) 100%);
   }
   .mm-card__media--placeholder img {
     opacity: 0.85;
+    transition: opacity 0.2s;
   }
+  .mm-card:hover .mm-card__media--placeholder img { opacity: 1; }
   .mm-card__new-badge {
     position: absolute;
-    top: 0.6rem;
-    right: 0.6rem;
-    padding: 0.2em 0.65em;
-    border-radius: 4px;
-    background: var(--mm-accent);
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.25em 0.7em;
+    border-radius: var(--mm-radius-pill);
+    background: var(--mm-accent-gradient);
     color: var(--mm-accent-contrast);
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
   }
   .mm-card__media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .mm-card:hover .mm-card__media img {
+    transform: scale(1.03);
   }
   .mm-card__content {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    padding: 1rem 1.1rem 1.1rem;
+    gap: 0.6rem;
+    padding: 1rem 1.2rem 1.2rem;
   }
   .mm-card__header-row {
     display: flex;
@@ -149,36 +156,43 @@ const metaItems = [publishDate, viewLabel, meta].filter((item) => Boolean(item))
   }
   .mm-card__season {
     width: fit-content;
+    font-size: 0.72rem;
+    background: var(--mm-accent-gradient);
+    color: var(--mm-accent-contrast);
+    border: none;
   }
   .mm-card__title {
     margin: 0;
-    font-size: 1.05rem;
+    font-family: var(--mm-font-display);
+    font-size: 1rem;
+    font-weight: 600;
     line-height: 1.35;
   }
   .mm-card__subtitle {
     margin: -0.2rem 0 0;
-    font-size: 0.93rem;
+    font-size: 0.9rem;
     line-height: 1.5;
   }
   .mm-card__meta {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem 0.85rem;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
   }
   .mm-card__meta-item {
     position: relative;
   }
   .mm-card__meta-item:not(:first-child)::before {
-    content: "•";
+    content: "·";
     position: absolute;
     left: -0.55rem;
     color: var(--mm-border);
+    font-weight: 700;
   }
   .mm-card__tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem;
-    margin-top: 0.1rem;
+    gap: 0.4rem;
+    margin-top: 0.2rem;
   }
 </style>
