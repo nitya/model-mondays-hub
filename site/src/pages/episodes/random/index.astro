@@ -1,0 +1,101 @@
+---
+// site/src/pages/episodes/random/index.astro
+// Picks a random published episode and renders it with embedded video.
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+const episodes = (await getCollection("episodes")).filter(
+  (e) => e.data.status === "published" && e.data.youtubeVideoId
+);
+
+// Pick a random episode at build time — visitors get a "random" pick per deploy.
+// For true client-side randomness we add a JS redirect fallback.
+const random = episodes[Math.floor(Math.random() * episodes.length)];
+const videoId = random.data.youtubeVideoId;
+const episodeUrl = `${base}episodes/${random.id}/`;
+
+// Build list for client-side randomization
+const episodeList = episodes.map((e) => ({
+  id: e.id,
+  videoId: e.data.youtubeVideoId,
+  title: e.data.title,
+}));
+---
+
+<BaseLayout title="Random Episode" description="Revisit a random Model Mondays episode.">
+  <section class="random-episode">
+    <h1>🎲 Random Episode</h1>
+    <p class="muted">Revisit an episode from the archives. Refresh for another!</p>
+
+    <div class="random-episode__player" id="player-container">
+      <iframe
+        id="video-frame"
+        width="100%"
+        height="100%"
+        src={`https://www.youtube.com/embed/${videoId}?rel=0`}
+        title={random.data.title}
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <div class="random-episode__meta">
+      <h2 id="episode-title">{random.data.title}</h2>
+      <div class="random-episode__actions">
+        <a id="episode-link" class="button" href={episodeUrl}>View full episode page</a>
+        <button class="button button--ghost" id="shuffle-btn">🎲 Shuffle another</button>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ episodeList, base }}>
+    const btn = document.getElementById("shuffle-btn");
+    const frame = document.getElementById("video-frame");
+    const titleEl = document.getElementById("episode-title");
+    const linkEl = document.getElementById("episode-link");
+
+    btn.addEventListener("click", () => {
+      const pick = episodeList[Math.floor(Math.random() * episodeList.length)];
+      frame.src = `https://www.youtube.com/embed/${pick.videoId}?rel=0&autoplay=1`;
+      frame.title = pick.title;
+      titleEl.textContent = pick.title;
+      linkEl.href = `${base}episodes/${pick.id}/`;
+    });
+  </script>
+
+  <style>
+    .random-episode {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .random-episode__player {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--mm-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--mm-shadow-lg);
+      margin: 1.5rem 0;
+    }
+    .random-episode__player iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .random-episode__meta {
+      text-align: center;
+    }
+    .random-episode__meta h2 {
+      margin: 0.5rem 0 1rem;
+    }
+    .random-episode__actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</BaseLayout>
