@@ -1,0 +1,50 @@
+---
+// site/src/pages/episodes/index.astro
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Card from "../../components/Card.astro";
+import Gallery from "../../components/Gallery.astro";
+
+const base = import.meta.env.BASE_URL;
+
+const episodes = (await getCollection("episodes")).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+const allTags = await getCollection("tags");
+const tagById = new Map(allTags.map((t) => [t.id, t.data]));
+
+const tagOptions = allTags
+  .map((t) => ({ id: t.id, label: t.data.label, category: t.data.category }))
+  .sort((a, b) => a.label.localeCompare(b.label));
+
+const episodeCards = episodes.map((ep) => {
+  const tags = ep.data.tags
+    .map((id) => tagById.get(id))
+    .filter((t) => Boolean(t))
+    .map((t) => ({ label: t!.label, category: t!.category }));
+  return { ep, tags };
+});
+---
+
+<BaseLayout title="Episodes" description="All Model Mondays episodes.">
+  <h1>Episodes</h1>
+  <p class="muted">{episodes.length} episode{episodes.length === 1 ? "" : "s"} — published and upcoming.</p>
+
+  <Gallery tagOptions={tagOptions} gridId="episode-grid">
+    <div class="grid" id="episode-grid">
+      {episodeCards.map(({ ep, tags }) => (
+        <Card
+          href={`${base}episodes/${ep.id}/`}
+          title={ep.data.title}
+          subtitle={ep.data.status !== "published" ? "Upcoming" : undefined}
+          meta={ep.data.publishDate.toLocaleDateString()}
+          tags={tags}
+          searchText={`${ep.data.title} ${ep.data.description ?? ""}`.toLowerCase()}
+          sortDate={ep.data.publishDate.toISOString()}
+          sortTitle={ep.data.title.toLowerCase()}
+        />
+      ))}
+    </div>
+  </Gallery>
+</BaseLayout>
+

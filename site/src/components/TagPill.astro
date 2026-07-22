@@ -1,0 +1,16 @@
+---
+// site/src/components/TagPill.astro
+interface Props {
+  label: string;
+  category?: "model" | "technology" | "partner";
+  href?: string;
+}
+const { label, category, href } = Astro.props;
+const className = `pill${category ? ` pill--${category}` : ""}`;
+---
+
+{href ? (
+  <a href={href} class={className}>{label}</a>
+) : (
+  <span class={className}>{label}</span>
+)}

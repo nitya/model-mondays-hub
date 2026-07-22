@@ -1,0 +1,167 @@
+---
+// site/src/components/Gallery.astro
+// Wraps a grid of <Card>s (passed via the default slot) with a minimal
+// vanilla-JS toolbar: text search, multi-select tag filter, and a date/title
+// sort toggle. No framework/hydration needed — a single inline <script>
+// reads the data-* attributes Card.astro puts on each card.
+interface TagOption {
+  id: string;
+  label: string;
+  category: "model" | "technology" | "partner";
+}
+interface Props {
+  tagOptions: TagOption[];
+  sortable?: boolean;
+  gridId: string;
+}
+const { tagOptions, sortable = true, gridId } = Astro.props;
+const byCategory = {
+  model: tagOptions.filter((t) => t.category === "model"),
+  technology: tagOptions.filter((t) => t.category === "technology"),
+  partner: tagOptions.filter((t) => t.category === "partner"),
+};
+---
+
+<div class="mm-gallery" data-grid-target={gridId}>
+  <div class="mm-gallery__toolbar">
+    <input
+      type="search"
+      class="mm-gallery__search"
+      placeholder="Search…"
+      aria-label="Search"
+    />
+    {sortable && (
+      <select class="mm-gallery__sort" aria-label="Sort by">
+        <option value="date-desc">Newest first</option>
+        <option value="date-asc">Oldest first</option>
+        <option value="title-asc">Title A–Z</option>
+        <option value="title-desc">Title Z–A</option>
+      </select>
+    )}
+  </div>
+
+  {tagOptions.length > 0 && (
+    <div class="mm-gallery__filters">
+      {(["model", "technology", "partner"] as const).map((cat) =>
+        byCategory[cat].length > 0 && (
+          <fieldset class="mm-gallery__filter-group">
+            <legend class="muted">{cat}</legend>
+            {byCategory[cat].map((t) => (
+              <label class="mm-gallery__tag-option">
+                <input type="checkbox" value={t.label.toLowerCase()} />
+                {t.label}
+              </label>
+            ))}
+          </fieldset>
+        )
+      )}
+    </div>
+  )}
+
+  <p class="mm-gallery__empty muted" hidden>No results match your filters.</p>
+
+  <slot />
+</div>
+
+<style>
+  .mm-gallery__toolbar {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .mm-gallery__search,
+  .mm-gallery__sort {
+    padding: 0.5em 0.75em;
+    border-radius: 8px;
+    border: 1px solid var(--mm-border);
+    background: var(--mm-bg-elevated);
+    color: var(--mm-text);
+    font: inherit;
+  }
+  .mm-gallery__search { flex: 1; min-width: 200px; }
+  .mm-gallery__filters {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--mm-border);
+  }
+  .mm-gallery__filter-group {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .mm-gallery__filter-group legend {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.2rem;
+  }
+  .mm-gallery__tag-option {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  // Minimal vanilla-JS gallery controller: no framework, no build step.
+  // Operates on any element with [data-grid-target] and the sibling grid
+  // whose id matches that value.
+  document.querySelectorAll<HTMLElement>(".mm-gallery").forEach((gallery) => {
+    const gridId = gallery.dataset.gridTarget;
+    const grid = gridId ? document.getElementById(gridId) : null;
+    if (!grid) return;
+
+    const cards = Array.from(grid.querySelectorAll<HTMLElement>("[data-search]"));
+    const searchInput = gallery.querySelector<HTMLInputElement>(".mm-gallery__search");
+    const sortSelect = gallery.querySelector<HTMLSelectElement>(".mm-gallery__sort");
+    const tagCheckboxes = Array.from(
+      gallery.querySelectorAll<HTMLInputElement>('.mm-gallery__tag-option input[type="checkbox"]')
+    );
+    const emptyMsg = gallery.querySelector<HTMLElement>(".mm-gallery__empty");
+
+    function applyFilters() {
+      const query = (searchInput?.value ?? "").trim().toLowerCase();
+      const activeTags = tagCheckboxes.filter((c) => c.checked).map((c) => c.value);
+      let visibleCount = 0;
+
+      for (const card of cards) {
+        const matchesSearch = !query || (card.dataset.search ?? "").includes(query);
+        const cardTags = (card.dataset.tags ?? "").split("|").filter(Boolean);
+        const matchesTags =
+          activeTags.length === 0 || activeTags.every((t) => cardTags.includes(t));
+        const visible = matchesSearch && matchesTags;
+        card.style.display = visible ? "" : "none";
+        if (visible) visibleCount += 1;
+      }
+
+      if (emptyMsg) emptyMsg.hidden = visibleCount !== 0;
+    }
+
+    function applySort() {
+      if (!sortSelect) return;
+      const [key, dir] = sortSelect.value.split("-") as ["date" | "title", "asc" | "desc"];
+      const sorted = [...cards].sort((a, b) => {
+        const va = key === "date" ? a.dataset.date ?? "" : a.dataset.title ?? "";
+        const vb = key === "date" ? b.dataset.date ?? "" : b.dataset.title ?? "";
+        return va < vb ? -1 : va > vb ? 1 : 0;
+      });
+      if (dir === "desc") sorted.reverse();
+      for (const card of sorted) grid.appendChild(card);
+    }
+
+    searchInput?.addEventListener("input", applyFilters);
+    tagCheckboxes.forEach((cb) => cb.addEventListener("change", applyFilters));
+    sortSelect?.addEventListener("change", applySort);
+
+    applyFilters();
+  });
+</script>

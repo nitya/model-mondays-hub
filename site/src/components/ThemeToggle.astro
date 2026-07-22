@@ -1,0 +1,57 @@
+---
+// site/src/components/ThemeToggle.astro
+// Persisted light/dark theme toggle. Respects prefers-color-scheme by
+// default; an explicit user choice is saved to localStorage and applied via
+// a `data-theme` attribute on <html>, read/set before paint by the inline
+// script in BaseLayout to avoid a flash of the wrong theme.
+---
+
+<button
+  id="theme-toggle"
+  class="theme-toggle"
+  type="button"
+  aria-label="Toggle light and dark theme"
+  title="Toggle theme"
+>
+  <span class="theme-toggle__icon" aria-hidden="true">🌓</span>
+</button>
+
+<style>
+  .theme-toggle {
+    background: transparent;
+    border: 1px solid var(--mm-border);
+    border-radius: 8px;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--mm-text);
+  }
+  .theme-toggle:hover { background: var(--mm-bg-elevated); }
+</style>
+
+<script>
+  const STORAGE_KEY = "mm-theme";
+  const btn = document.getElementById("theme-toggle");
+
+  function currentTheme(): "light" | "dark" {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === "light" || stored === "dark") return stored;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  function apply(theme: "light" | "dark") {
+    document.documentElement.setAttribute("data-theme", theme);
+  }
+
+  apply(currentTheme());
+
+  btn?.addEventListener("click", () => {
+    const next = currentTheme() === "dark" ? "light" : "dark";
+    localStorage.setItem(STORAGE_KEY, next);
+    apply(next);
+  });
+</script>

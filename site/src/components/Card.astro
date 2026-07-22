@@ -1,0 +1,52 @@
+---
+// site/src/components/Card.astro
+// Generic card used by the episode and speaker galleries.
+import TagPill from "./TagPill.astro";
+
+interface Props {
+  href: string;
+  title: string;
+  subtitle?: string;
+  meta?: string;
+  tags?: { label: string; category?: "model" | "technology" | "partner" }[];
+  searchText?: string; // lowercase text used by client-side search filtering
+  sortDate?: string; // ISO date used by client-side sort
+  sortTitle?: string;
+}
+const { href, title, subtitle, meta, tags = [], searchText, sortDate, sortTitle } = Astro.props;
+---
+
+<a
+  class="mm-card card"
+  href={href}
+  data-search={searchText ?? title.toLowerCase()}
+  data-date={sortDate ?? ""}
+  data-title={sortTitle ?? title.toLowerCase()}
+  data-tags={tags.map((t) => t.label.toLowerCase()).join("|")}
+>
+  <h3 class="mm-card__title">{title}</h3>
+  {subtitle && <p class="mm-card__subtitle muted">{subtitle}</p>}
+  {meta && <p class="mm-card__meta muted">{meta}</p>}
+  {tags.length > 0 && (
+    <div class="mm-card__tags">
+      {tags.map((t) => <TagPill label={t.label} category={t.category} />)}
+    </div>
+  )}
+</a>
+
+<style>
+  .mm-card {
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .mm-card:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+  .mm-card__title { margin: 0; font-size: 1.05rem; }
+  .mm-card__subtitle, .mm-card__meta { margin: 0; font-size: 0.9rem; }
+  .mm-card__tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.25rem; }
+</style>
