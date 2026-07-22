@@ -1,0 +1,22 @@
+{
+  "name": "model-mondays-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Data-first, agent-first knowledge base for the Model Mondays livestream series.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "scrape:playlist": "node scripts/scrape-playlist.mjs",
+    "scrape:transcript": "node scripts/scrape-transcript.mjs",
+    "stats:youtube": "node scripts/fetch-youtube-stats.mjs",
+    "build": "npm run validate && npm --prefix site run build",
+    "dev": "npm --prefix site run dev"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "js-yaml": "^4.1.0",
+    "playwright": "^1.48.0"
+  }
+}

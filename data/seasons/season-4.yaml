@@ -1,0 +1,15 @@
+id: season-4
+number: 4
+title: Season 4
+theme: >-
+  As an AI native engineer, your journey starts with model choice. Build your
+  Model IQ one week at a time with Tech Spotlights, Customer Stories, Study
+  Corner, and Partner Spotlights.
+startDate: 2026-08-10
+endDate: 2026-11-02
+status: upcoming
+breaks:
+  - date: 2026-09-07
+    reason: Labor Day break — no episode this week.
+playlistUrl: https://www.youtube.com/playlist?list=PLmsFUfdnGr3wzz6a4E-Szksg92JPng-AL
+provenance: hand-curated:season-schedule

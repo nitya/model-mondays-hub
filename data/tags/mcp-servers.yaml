@@ -1,0 +1,4 @@
+id: mcp-servers
+label: MCP Servers
+category: technology
+description: Model Context Protocol servers that let agents discover and use external tools.

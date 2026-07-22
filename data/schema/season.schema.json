@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://model-mondays-hub/schema/season.schema.json",
+  "title": "Season",
+  "description": "A season of the Model Mondays series.",
+  "type": "object",
+  "required": ["id", "number", "title", "startDate"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Slug identifier, matches the YAML filename without extension, e.g. 'season-4'.",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "number": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Season number."
+    },
+    "title": {
+      "type": "string",
+      "description": "Display title, e.g. 'Season 4'."
+    },
+    "theme": {
+      "type": "string",
+      "description": "Season theme / pitch line."
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date",
+      "description": "First episode air date (YYYY-MM-DD)."
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Last episode air date (YYYY-MM-DD)."
+    },
+    "breaks": {
+      "type": "array",
+      "description": "Known weeks with no episode (e.g. holidays).",
+      "items": {
+        "type": "object",
+        "required": ["date", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "date": { "type": "string", "format": "date" },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["upcoming", "active", "completed"],
+      "default": "upcoming"
+    },
+    "playlistUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "YouTube playlist URL for this season, if a dedicated one exists."
+    },
+    "provenance": {
+      "type": "string",
+      "description": "How this record was sourced, e.g. 'hand-curated:public-info' or 'hand-curated:season-schedule'."
+    }
+  }
+}
