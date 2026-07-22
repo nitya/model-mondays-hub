@@ -6,7 +6,7 @@ category: language
 description: Anthropic's balanced model offering strong performance across reasoning, analysis, and code at moderate cost.
 catalogUrl: https://ai.azure.com/catalog/models/claude-3-5-sonnet
 providerUrl: https://www.anthropic.com/claude
-learnUrl: https://learn.microsoft.com/en-us/azure/ai/foundry/models/collections/anthropic
+learnUrl: https://ai.azure.com/explore/models?selectedCollection=anthropic
 openSource: false
 status: active
 episodes:

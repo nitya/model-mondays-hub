@@ -5,8 +5,8 @@ family: o-series
 category: reasoning
 description: Next-generation reasoning model from OpenAI with enhanced chain-of-thought capabilities.
 catalogUrl: https://ai.azure.com/catalog/models/o3
-providerUrl: https://openai.com/o3
-learnUrl: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#o-series-models
+providerUrl: https://openai.com/index/deliberative-alignment
+learnUrl: https://learn.microsoft.com/azure/ai-services/openai/concepts/models#o-series-models
 openSource: false
 status: new
 episodes:

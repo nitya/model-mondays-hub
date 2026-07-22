@@ -1,41 +1,49 @@
 /* site/src/styles/theme.css
- * Modern, playful design system for Model Mondays Hub.
- * Purple/fuchsia/gold palette with whimsical curves, layered shadows,
- * and glassmorphism touches. Respects prefers-color-scheme; overridden
- * by data-theme on <html>.
+ * Peacock palette design system for Model Mondays Hub.
+ * Royal purple + hunter green with teal & gold accents.
+ * Organic, regal feel with generous curves and layered shadows.
+ * Respects prefers-color-scheme; overridden by data-theme on <html>.
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
 
 :root {
   /* Core palette */
-  --mm-bg: #faf8ff;
+  --mm-bg: #f8faf9;
   --mm-bg-elevated: #ffffff;
-  --mm-bg-glass: rgba(255, 255, 255, 0.7);
-  --mm-text: #1a1025;
-  --mm-text-muted: #6b5f7a;
-  --mm-border: #e8dff5;
+  --mm-bg-glass: rgba(255, 255, 255, 0.72);
+  --mm-text: #1a1f2b;
+  --mm-text-muted: #5c6b7a;
+  --mm-border: #dce8e3;
 
-  /* Accent gradient: purple → fuchsia */
-  --mm-accent: #7c3aed;
-  --mm-accent-2: #d946ef;
-  --mm-accent-gradient: linear-gradient(135deg, #7c3aed 0%, #d946ef 100%);
+  /* Accent gradient: royal purple → teal */
+  --mm-accent: #5b21b6;
+  --mm-accent-2: #0d9488;
+  --mm-accent-gradient: linear-gradient(135deg, #5b21b6 0%, #0d9488 100%);
   --mm-accent-contrast: #ffffff;
-  --mm-accent-soft: #f3eaff;
+  --mm-accent-soft: #ede9fe;
+
+  /* Hunter green */
+  --mm-green: #166534;
+  --mm-green-soft: #dcfce7;
+
+  /* Teal */
+  --mm-teal: #0d9488;
+  --mm-teal-soft: #ccfbf1;
 
   /* Gold highlight */
-  --mm-gold: #f59e0b;
+  --mm-gold: #b45309;
   --mm-gold-soft: #fef3c7;
 
   /* Links */
-  --mm-link: #7c3aed;
-  --mm-link-hover: #d946ef;
+  --mm-link: #5b21b6;
+  --mm-link-hover: #0d9488;
 
-  /* Shadows — layered with color tint */
-  --mm-shadow-sm: 0 1px 2px rgba(124, 58, 237, 0.04), 0 2px 6px rgba(124, 58, 237, 0.06);
-  --mm-shadow: 0 2px 8px rgba(124, 58, 237, 0.06), 0 8px 24px rgba(124, 58, 237, 0.08);
-  --mm-shadow-lg: 0 4px 12px rgba(124, 58, 237, 0.08), 0 16px 48px rgba(124, 58, 237, 0.12);
-  --mm-shadow-glow: 0 0 20px rgba(124, 58, 237, 0.15), 0 0 60px rgba(217, 70, 239, 0.08);
+  /* Shadows — layered with organic green/purple tint */
+  --mm-shadow-sm: 0 1px 2px rgba(22, 101, 52, 0.04), 0 2px 6px rgba(91, 33, 182, 0.05);
+  --mm-shadow: 0 2px 8px rgba(22, 101, 52, 0.06), 0 8px 24px rgba(91, 33, 182, 0.07);
+  --mm-shadow-lg: 0 4px 12px rgba(22, 101, 52, 0.08), 0 16px 48px rgba(91, 33, 182, 0.1);
+  --mm-shadow-glow: 0 0 20px rgba(13, 148, 136, 0.15), 0 0 60px rgba(91, 33, 182, 0.08);
 
   /* Curves & radii */
   --mm-radius: 16px;
@@ -49,48 +57,56 @@
 }
 
 :root[data-theme="dark"] {
-  --mm-bg: #0d0a14;
-  --mm-bg-elevated: #1a1428;
-  --mm-bg-glass: rgba(26, 20, 40, 0.8);
-  --mm-text: #f0ecf7;
-  --mm-text-muted: #a89bbf;
-  --mm-border: #2d2440;
+  --mm-bg: #0a0f14;
+  --mm-bg-elevated: #141e28;
+  --mm-bg-glass: rgba(20, 30, 40, 0.82);
+  --mm-text: #e8f0ec;
+  --mm-text-muted: #94a8a0;
+  --mm-border: #1e3a30;
   --mm-accent: #a78bfa;
-  --mm-accent-2: #e879f9;
-  --mm-accent-gradient: linear-gradient(135deg, #a78bfa 0%, #e879f9 100%);
-  --mm-accent-contrast: #0d0a14;
-  --mm-accent-soft: #1f1535;
+  --mm-accent-2: #5eead4;
+  --mm-accent-gradient: linear-gradient(135deg, #a78bfa 0%, #5eead4 100%);
+  --mm-accent-contrast: #0a0f14;
+  --mm-accent-soft: #1e1545;
+  --mm-green: #4ade80;
+  --mm-green-soft: #052e16;
+  --mm-teal: #5eead4;
+  --mm-teal-soft: #042f2e;
   --mm-gold: #fbbf24;
   --mm-gold-soft: #422006;
   --mm-link: #a78bfa;
-  --mm-link-hover: #e879f9;
-  --mm-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(167, 139, 250, 0.05);
-  --mm-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(167, 139, 250, 0.08);
-  --mm-shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.4), 0 16px 48px rgba(167, 139, 250, 0.1);
-  --mm-shadow-glow: 0 0 20px rgba(167, 139, 250, 0.2), 0 0 60px rgba(232, 121, 249, 0.1);
+  --mm-link-hover: #5eead4;
+  --mm-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(94, 234, 212, 0.04);
+  --mm-shadow: 0 2px 8px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(167, 139, 250, 0.06);
+  --mm-shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.4), 0 16px 48px rgba(167, 139, 250, 0.08);
+  --mm-shadow-glow: 0 0 20px rgba(94, 234, 212, 0.2), 0 0 60px rgba(167, 139, 250, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --mm-bg: #0d0a14;
-    --mm-bg-elevated: #1a1428;
-    --mm-bg-glass: rgba(26, 20, 40, 0.8);
-    --mm-text: #f0ecf7;
-    --mm-text-muted: #a89bbf;
-    --mm-border: #2d2440;
+    --mm-bg: #0a0f14;
+    --mm-bg-elevated: #141e28;
+    --mm-bg-glass: rgba(20, 30, 40, 0.82);
+    --mm-text: #e8f0ec;
+    --mm-text-muted: #94a8a0;
+    --mm-border: #1e3a30;
     --mm-accent: #a78bfa;
-    --mm-accent-2: #e879f9;
-    --mm-accent-gradient: linear-gradient(135deg, #a78bfa 0%, #e879f9 100%);
-    --mm-accent-contrast: #0d0a14;
-    --mm-accent-soft: #1f1535;
+    --mm-accent-2: #5eead4;
+    --mm-accent-gradient: linear-gradient(135deg, #a78bfa 0%, #5eead4 100%);
+    --mm-accent-contrast: #0a0f14;
+    --mm-accent-soft: #1e1545;
+    --mm-green: #4ade80;
+    --mm-green-soft: #052e16;
+    --mm-teal: #5eead4;
+    --mm-teal-soft: #042f2e;
     --mm-gold: #fbbf24;
     --mm-gold-soft: #422006;
     --mm-link: #a78bfa;
-    --mm-link-hover: #e879f9;
-    --mm-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(167, 139, 250, 0.05);
-    --mm-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(167, 139, 250, 0.08);
-    --mm-shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.4), 0 16px 48px rgba(167, 139, 250, 0.1);
-    --mm-shadow-glow: 0 0 20px rgba(167, 139, 250, 0.2), 0 0 60px rgba(232, 121, 249, 0.1);
+    --mm-link-hover: #5eead4;
+    --mm-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(94, 234, 212, 0.04);
+    --mm-shadow: 0 2px 8px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(167, 139, 250, 0.06);
+    --mm-shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.4), 0 16px 48px rgba(167, 139, 250, 0.08);
+    --mm-shadow-glow: 0 0 20px rgba(94, 234, 212, 0.2), 0 0 60px rgba(167, 139, 250, 0.1);
   }
 }
 
@@ -169,14 +185,14 @@ img { max-width: 100%; display: block; }
   border: 1px solid transparent;
 }
 
-.pill--model { background: #ecfdf5; color: #059669; border-color: #a7f3d0; }
+.pill--model { background: #ccfbf1; color: #0d9488; border-color: #99f6e4; }
 .pill--technology { background: var(--mm-accent-soft); color: var(--mm-accent); border-color: color-mix(in srgb, var(--mm-accent) 20%, transparent); }
-.pill--partner { background: #fff7ed; color: #ea580c; border-color: #fed7aa; }
+.pill--partner { background: var(--mm-gold-soft); color: var(--mm-gold); border-color: #fde68a; }
 
 :root[data-theme="dark"] .pill--model,
-:root:not([data-theme="light"]) .pill--model { background: #064e3b; color: #6ee7b7; border-color: #065f46; }
+:root:not([data-theme="light"]) .pill--model { background: #042f2e; color: #5eead4; border-color: #115e59; }
 :root[data-theme="dark"] .pill--partner,
-:root:not([data-theme="light"]) .pill--partner { background: #431407; color: #fdba74; border-color: #7c2d12; }
+:root:not([data-theme="light"]) .pill--partner { background: #422006; color: #fbbf24; border-color: #78350f; }
 
 /* Buttons — gradient with glow */
 .button {

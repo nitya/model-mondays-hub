@@ -5,8 +5,8 @@ family: MAI
 category: language
 description: Microsoft's proprietary large language model for enterprise-grade AI applications.
 catalogUrl: https://ai.azure.com/catalog/models/MAI-DS-R1
-providerUrl: https://azure.microsoft.com/en-us/blog/tag/mai/
-learnUrl: https://learn.microsoft.com/en-us/azure/ai/foundry/models/collections/microsoft
+providerUrl: https://techcommunity.microsoft.com/tag/microsoft-ai-models
+learnUrl: https://ai.azure.com/explore/models?selectedCollection=microsoft
 openSource: false
 status: active
 episodes:

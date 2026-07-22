@@ -6,7 +6,7 @@ category: reasoning
 description: Open-source reasoning model with strong math and coding capabilities via reinforcement learning.
 catalogUrl: https://ai.azure.com/catalog/models/DeepSeek-R1
 providerUrl: https://www.deepseek.com/
-learnUrl: https://learn.microsoft.com/en-us/azure/ai/foundry/models/collections/deepseek
+learnUrl: https://ai.azure.com/explore/models?selectedCollection=deepseek
 parameters: 671B
 openSource: true
 status: active

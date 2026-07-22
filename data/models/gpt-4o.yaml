@@ -5,8 +5,8 @@ family: GPT
 category: multimodal
 description: OpenAI's flagship multimodal model — text, vision, and audio in one model with fast inference.
 catalogUrl: https://ai.azure.com/catalog/models/gpt-4o
-providerUrl: https://openai.com/gpt-4o
-learnUrl: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models
+providerUrl: https://openai.com/index/hello-gpt-4o
+learnUrl: https://learn.microsoft.com/azure/ai-services/openai/concepts/models
 openSource: false
 status: active
 episodes:

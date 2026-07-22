@@ -16,11 +16,10 @@ interface Props {
 
 const { href, name, title, company, role, avatar, linkedin, github, searchText, sortTitle } = Astro.props;
 const initials = name.split(" ").map((n) => n[0]).join("").slice(0, 2);
-const roleLabel = role === "host" ? "Host" : role === "producer" ? "Producer" : undefined;
 ---
 
 <a
-  class="speaker-card card"
+  class={`speaker-card card ${role === "host" ? "speaker-card--host" : role === "producer" ? "speaker-card--producer" : ""}`}
   href={href}
   data-search={searchText ?? name.toLowerCase()}
   data-title={sortTitle ?? name.toLowerCase()}
@@ -35,7 +34,6 @@ const roleLabel = role === "host" ? "Host" : role === "producer" ? "Producer" : 
     )}
   </div>
   <div class="speaker-card__info">
-    {roleLabel && <span class="pill speaker-card__role">{roleLabel}</span>}
     <h3 class="speaker-card__name">{name}</h3>
     {title && <p class="speaker-card__title muted">{title}</p>}
     {company && <p class="speaker-card__company">{company}</p>}
@@ -84,6 +82,14 @@ const roleLabel = role === "host" ? "Host" : role === "producer" ? "Producer" : 
     justify-content: center;
     position: relative;
   }
+  /* Host: gold ring around avatar */
+  .speaker-card--host .speaker-card__avatar {
+    box-shadow: inset 0 0 0 4px var(--mm-gold, #b45309);
+  }
+  /* Producer: teal ring */
+  .speaker-card--producer .speaker-card__avatar {
+    box-shadow: inset 0 0 0 4px var(--mm-teal, #0d9488);
+  }
   .speaker-card__avatar img {
     width: 100%;
     height: 100%;
@@ -109,13 +115,6 @@ const roleLabel = role === "host" ? "Host" : role === "producer" ? "Producer" : 
     align-items: center;
     gap: 0.3rem;
     padding: 1rem 1rem 1.2rem;
-  }
-  .speaker-card__role {
-    font-size: 0.7rem;
-    background: var(--mm-accent-gradient);
-    color: var(--mm-accent-contrast);
-    border: none;
-    margin-bottom: 0.2rem;
   }
   .speaker-card__name {
     margin: 0;

@@ -5,8 +5,8 @@ family: Whisper
 category: speech
 description: Open-source automatic speech recognition model trained on 680K hours of multilingual audio.
 catalogUrl: https://ai.azure.com/catalog/models/openai-whisper-large-v3
-providerUrl: https://openai.com/research/whisper
-learnUrl: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/whisper-overview
+providerUrl: https://openai.com/index/whisper
+learnUrl: https://learn.microsoft.com/azure/ai-services/speech-service/whisper-overview
 openSource: true
 status: active
 episodes:

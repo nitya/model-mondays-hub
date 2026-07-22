@@ -6,7 +6,7 @@ category: language
 description: Cohere's enterprise-grade model optimized for RAG, tool use, and multi-step reasoning.
 catalogUrl: https://ai.azure.com/catalog/models/Cohere-command-r-plus-08-2024
 providerUrl: https://cohere.com/command
-learnUrl: https://learn.microsoft.com/en-us/azure/ai/studio/how-to/deploy-models-cohere-command
+learnUrl: https://ai.azure.com/explore/models?selectedCollection=cohere
 openSource: false
 status: active
 episodes:

@@ -6,8 +6,8 @@ category: small-language
 description: Microsoft's state-of-the-art small language model (14B params) — strong reasoning in a compact footprint.
 catalogUrl: https://ai.azure.com/catalog/models/Phi-4
 providerUrl: >-
-  https://azure.microsoft.com/en-us/blog/introducing-phi-4-microsoft-s-newest-small-language-model-specializing-in-complex-reasoning/
-learnUrl: https://learn.microsoft.com/en-us/azure/ai/foundry/models/phi-4
+  https://techcommunity.microsoft.com/blog/aiplatformblog/introducing-phi-4-microsoft%E2%80%99s-newest-small-language-model-specializing-in-comple/4357090
+learnUrl: https://ai.azure.com/explore/models/Phi-4/version/3/registry/azureml
 parameters: 14B
 openSource: true
 status: active
