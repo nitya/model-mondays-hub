@@ -8,12 +8,38 @@ interface Props {
   title: string;
   subtitle?: string;
   meta?: string;
+  publishDate?: string;
+  videoId?: string;
+  seasonLabel?: string;
+  views?: number;
   tags?: { label: string; category?: "model" | "technology" | "partner" }[];
   searchText?: string; // lowercase text used by client-side search filtering
   sortDate?: string; // ISO date used by client-side sort
   sortTitle?: string;
 }
-const { href, title, subtitle, meta, tags = [], searchText, sortDate, sortTitle } = Astro.props;
+
+const {
+  href,
+  title,
+  subtitle,
+  meta,
+  publishDate,
+  videoId,
+  seasonLabel,
+  views,
+  tags = [],
+  searchText,
+  sortDate,
+  sortTitle,
+} = Astro.props;
+
+const thumbnailUrl = videoId ? `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg` : undefined;
+const compactNumber = new Intl.NumberFormat("en-US", {
+  notation: "compact",
+  maximumFractionDigits: 1,
+});
+const viewLabel = views != null ? `${compactNumber.format(views)} views` : undefined;
+const metaItems = [publishDate, viewLabel, meta].filter((item) => Boolean(item)) as string[];
 ---
 
 <a
@@ -24,14 +50,34 @@ const { href, title, subtitle, meta, tags = [], searchText, sortDate, sortTitle 
   data-title={sortTitle ?? title.toLowerCase()}
   data-tags={tags.map((t) => t.label.toLowerCase()).join("|")}
 >
-  <h3 class="mm-card__title">{title}</h3>
-  {subtitle && <p class="mm-card__subtitle muted">{subtitle}</p>}
-  {meta && <p class="mm-card__meta muted">{meta}</p>}
-  {tags.length > 0 && (
-    <div class="mm-card__tags">
-      {tags.map((t) => <TagPill label={t.label} category={t.category} />)}
+  {thumbnailUrl && (
+    <div class="mm-card__media">
+      <img src={thumbnailUrl} alt="" loading="lazy" />
     </div>
   )}
+
+  <div class="mm-card__content">
+    {seasonLabel && (
+      <div class="mm-card__header-row">
+        <span class="pill mm-card__season">{seasonLabel}</span>
+      </div>
+    )}
+
+    <h3 class="mm-card__title">{title}</h3>
+    {subtitle && <p class="mm-card__subtitle muted">{subtitle}</p>}
+
+    {metaItems.length > 0 && (
+      <div class="mm-card__meta muted">
+        {metaItems.map((item) => <span class="mm-card__meta-item">{item}</span>)}
+      </div>
+    )}
+
+    {tags.length > 0 && (
+      <div class="mm-card__tags">
+        {tags.map((t) => <TagPill label={t.label} category={t.category} />)}
+      </div>
+    )}
+  </div>
 </a>
 
 <style>
@@ -39,14 +85,69 @@ const { href, title, subtitle, meta, tags = [], searchText, sortDate, sortTitle 
     color: inherit;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0;
+    overflow: hidden;
+    padding: 0;
     transition: transform 0.12s ease, box-shadow 0.12s ease;
   }
   .mm-card:hover {
     text-decoration: none;
     transform: translateY(-2px);
   }
-  .mm-card__title { margin: 0; font-size: 1.05rem; }
-  .mm-card__subtitle, .mm-card__meta { margin: 0; font-size: 0.9rem; }
-  .mm-card__tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.25rem; }
+  .mm-card__media {
+    aspect-ratio: 16 / 9;
+    background: var(--mm-accent-soft);
+    border-bottom: 1px solid var(--mm-border);
+    overflow: hidden;
+  }
+  .mm-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .mm-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem 1.1rem 1.1rem;
+  }
+  .mm-card__header-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .mm-card__season {
+    width: fit-content;
+  }
+  .mm-card__title {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.35;
+  }
+  .mm-card__subtitle {
+    margin: -0.2rem 0 0;
+    font-size: 0.93rem;
+    line-height: 1.5;
+  }
+  .mm-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.85rem;
+    font-size: 0.85rem;
+  }
+  .mm-card__meta-item {
+    position: relative;
+  }
+  .mm-card__meta-item:not(:first-child)::before {
+    content: "•";
+    position: absolute;
+    left: -0.55rem;
+    color: var(--mm-border);
+  }
+  .mm-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.1rem;
+  }
 </style>

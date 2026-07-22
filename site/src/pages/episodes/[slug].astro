@@ -1,5 +1,4 @@
 ---
-// site/src/pages/episodes/[slug].astro
 import { getCollection, getEntry, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import TagPill from "../../components/TagPill.astro";
@@ -11,6 +10,27 @@ export async function getStaticPaths() {
 
 const { ep } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const formatDate = (date: Date) =>
+  date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+const formatDuration = (seconds: number) => {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
+
+  if (hours > 0) {
+    return `${hours}h ${minutes.toString().padStart(2, "0")}m`;
+  }
+  if (minutes > 0) {
+    return `${minutes}m ${remainingSeconds.toString().padStart(2, "0")}s`;
+  }
+  return `${remainingSeconds}s`;
+};
+const getEpisodeLabel = (seasonNumber: number | undefined, episodeId: string) => {
+  const match = episodeId.match(/s\d+-e(\d+)/i);
+  const episodeNumber = match ? Number(match[1]) : undefined;
+  if (seasonNumber == null || episodeNumber == null) return undefined;
+  return `S${seasonNumber} · E${episodeNumber}`;
+};
 
 const allSpeakers = await getCollection("speakers");
 const speakerById = new Map(allSpeakers.map((s) => [s.id, s.data]));
@@ -25,11 +45,24 @@ const tags = ep.data.tags
   .filter((t) => Boolean(t)) as NonNullable<ReturnType<typeof tagById.get>>[];
 
 const season = await getEntry("seasons", ep.data.season);
+const seasonLabel = getEpisodeLabel(season?.data.number, ep.id);
+const infoBadges = [
+  seasonLabel,
+  formatDate(ep.data.publishDate),
+  ep.data.duration != null ? `⏱ ${formatDuration(ep.data.duration)}` : undefined,
+].filter((item) => Boolean(item)) as string[];
+const metrics = [
+  ep.data.metrics?.views != null ? `👁 ${ep.data.metrics.views.toLocaleString("en-US")}` : undefined,
+  ep.data.metrics?.likes != null ? `👍 ${ep.data.metrics.likes.toLocaleString("en-US")}` : undefined,
+  ep.data.metrics?.comments != null ? `💬 ${ep.data.metrics.comments.toLocaleString("en-US")}` : undefined,
+].filter((item) => Boolean(item)) as string[];
 
+const allTranscripts = await getCollection("transcripts");
+const transcriptIds = new Set(allTranscripts.map((entry) => entry.id));
 let transcript: Awaited<ReturnType<typeof render>> | null = null;
 if (ep.data.transcriptPath) {
   const transcriptId = ep.data.transcriptPath.split("/").pop()?.replace(/\.md$/, "");
-  if (transcriptId) {
+  if (transcriptId && transcriptIds.has(transcriptId)) {
     const entry = await getEntry("transcripts", transcriptId);
     if (entry) transcript = await render(entry);
   }
@@ -40,11 +73,11 @@ if (ep.data.transcriptPath) {
   <a href={`${base}episodes/`} class="muted">&larr; All episodes</a>
   <h1>{ep.data.title}</h1>
 
-  <p class="muted">
-    {ep.data.publishDate.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
-    {season && <> · {season.data.title}</>}
-    {ep.data.status !== "published" && <> · <span class="pill pill--technology">Upcoming</span></>}
-  </p>
+  <div class="episode-info-row">
+    {infoBadges.map((badge) => <span class="meta-badge">{badge}</span>)}
+    {season && <span class="muted episode-season-title">{season.data.title}</span>}
+    {ep.data.status !== "published" && <span class="pill pill--technology">Upcoming</span>}
+  </div>
 
   {tags.length > 0 && (
     <div class="tag-row">
@@ -64,7 +97,12 @@ if (ep.data.transcriptPath) {
     </div>
   )}
 
-  {ep.data.description && <p>{ep.data.description}</p>}
+  {ep.data.description && (
+    <section class="section">
+      <h2>Description</h2>
+      <p>{ep.data.description}</p>
+    </section>
+  )}
 
   {speakers.length > 0 && (
     <section class="section">
@@ -80,14 +118,12 @@ if (ep.data.transcriptPath) {
     </section>
   )}
 
-  {ep.data.metrics && (
+  {metrics.length > 0 && (
     <section class="section">
       <h2>Metrics</h2>
-      <p class="muted">
-        {ep.data.metrics.views != null && <>{ep.data.metrics.views.toLocaleString()} views</>}
-        {ep.data.metrics.likes != null && <> · {ep.data.metrics.likes.toLocaleString()} likes</>}
-        {ep.data.metrics.comments != null && <> · {ep.data.metrics.comments.toLocaleString()} comments</>}
-      </p>
+      <div class="metric-badge-row">
+        {metrics.map((metric) => <span class="metric-badge">{metric}</span>)}
+      </div>
     </section>
   )}
 
@@ -115,6 +151,16 @@ if (ep.data.transcriptPath) {
   )}
 
   <style>
+    .episode-info-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .episode-season-title {
+      font-size: 0.95rem;
+    }
     .tag-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0; }
     .video-embed {
       position: relative;
@@ -126,8 +172,9 @@ if (ep.data.transcriptPath) {
     }
     .video-embed iframe {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       border: none;
     }
     .section { margin-top: 2rem; }

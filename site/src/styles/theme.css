@@ -124,3 +124,57 @@ img { max-width: 100%; display: block; }
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1.25rem;
 }
+
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.9rem;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.1rem;
+  background: var(--mm-bg-elevated);
+  border: 1px solid var(--mm-border);
+  border-radius: var(--mm-radius);
+  box-shadow: var(--mm-shadow);
+}
+
+.stat-card__value {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  line-height: 1.1;
+}
+
+.stat-card__label {
+  font-size: 0.85rem;
+}
+
+.meta-badge,
+.metric-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--mm-border);
+  background: var(--mm-bg-elevated);
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.meta-badge {
+  color: var(--mm-text-muted);
+}
+
+.metric-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.metric-badge {
+  font-weight: 600;
+  color: var(--mm-text);
+}

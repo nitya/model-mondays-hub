@@ -78,9 +78,9 @@ const episodes = defineCollection({
     duration: z.number().optional(),
     metrics: z
       .object({
-        views: z.number().optional(),
-        likes: z.number().optional(),
-        comments: z.number().optional(),
+        views: z.number().nullable().optional(),
+        likes: z.number().nullable().optional(),
+        comments: z.number().nullable().optional(),
         updatedAt: z.coerce.date().optional(),
       })
       .optional(),

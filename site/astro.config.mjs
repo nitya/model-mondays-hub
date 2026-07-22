@@ -7,7 +7,7 @@ import { defineConfig } from "astro/config";
 // the repo is renamed or a custom domain is configured.
 export default defineConfig({
   site: "https://nitya.github.io",
-  base: "/model-mondays-hub",
+  base: "/model-mondays-hub/",
   output: "static",
   build: {
     assets: "assets",

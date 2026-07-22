@@ -1,15 +1,17 @@
 id: season-3
 number: 3
-title: Season 3
+title: "Season 3: Microsoft Foundry Spotlights"
 theme: >-
-  Build your Model IQ one week at a time — Tech Spotlights, Customer Stories,
-  Study Corner, and Partner Spotlights across the Microsoft Foundry model
-  catalog.
-startDate: 2026-03-24
+  A 16-episode season putting the tech spotlight on Microsoft Foundry with
+  product group leads and subject matter experts — model router, red teaming,
+  Foundry Local, agent framework, Responses API, fine-tuning, synthetic data,
+  next-gen UI, Foundry Labs, agents, control plane, AI Toolkit, Foundry IQ,
+  MCP, Agent 365, and GitHub Agentic Workflows. Plus Partner Spotlights
+  with Anthropic, Black Forest Labs, Fireworks AI, Cohere, and Hugging Face.
+startDate: 2025-12-02
 endDate: 2026-04-21
 status: completed
-provenance: >-
-  hand-curated:public-info — startDate reflects the earliest episode seeded
-  in this repo so far (2026-03-24), not necessarily the true season premiere;
-  full historical backfill is deferred, see AGENTS.md.
+episodeCount: 16
+playlistUrl: https://www.youtube.com/playlist?list=PLmsFUfdnGr3wzz6a4E-Szksg92JPng-AL
+provenance: "verified:microsoft/model-mondays season-03 README"
 
