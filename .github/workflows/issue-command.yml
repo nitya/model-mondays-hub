@@ -72,10 +72,13 @@ jobs:
 
       - name: Assign issue to Copilot coding agent
         id: assign
-        if: ${{ secrets.COPILOT_ASSIGN_PAT != '' }}
         env:
           GH_TOKEN: ${{ secrets.COPILOT_ASSIGN_PAT }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
+        # Only runs when a COPILOT_ASSIGN_PAT secret is configured. Since
+        # secrets can't be referenced in if: expressions, we check via the
+        # env var the step already needs.
+        if: env.GH_TOKEN != ''
         run: |
           gh issue edit "$ISSUE_NUMBER" \
             --repo "${{ github.repository }}" \
