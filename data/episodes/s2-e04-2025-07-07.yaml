@@ -25,7 +25,6 @@ metrics:
   likes: 34
   comments: 1
   updatedAt: '2026-07-22T03:57:03.309Z'
-transcriptPath: data/transcripts/model-mondays-ai-developer-experience.md
 chapters:
   - time: '00:00'
     label: '- Welcome & Code of Conduct'

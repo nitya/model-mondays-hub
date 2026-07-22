@@ -21,7 +21,6 @@ metrics:
   likes: 27
   comments: 0
   updatedAt: '2026-07-22T03:57:04.744Z'
-transcriptPath: data/transcripts/model-mondays-small-language-models.md
 chapters:
   - time: '00:00'
     label: – Welcome & Code of Conduct

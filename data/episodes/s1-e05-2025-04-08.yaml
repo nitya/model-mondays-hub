@@ -21,6 +21,5 @@ metrics:
   likes: 26
   comments: 1
   updatedAt: '2026-07-22T03:57:13.400Z'
-transcriptPath: data/transcripts/model-mondays-hands-on-with-fine-tuning-models.md
 chapters: []
 provenance: scraped:youtube-playlist

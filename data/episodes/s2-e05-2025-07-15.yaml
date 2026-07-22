@@ -24,7 +24,6 @@ metrics:
   likes: 43
   comments: 0
   updatedAt: '2026-07-22T03:57:01.656Z'
-transcriptPath: data/transcripts/model-mondays-fine-tuning-distillation.md
 chapters:
   - time: '00:00'
     label: – Welcome & Housekeeping

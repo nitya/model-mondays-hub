@@ -23,7 +23,6 @@ metrics:
   likes: 37
   comments: 1
   updatedAt: '2026-07-22T03:56:51.027Z'
-transcriptPath: data/transcripts/model-mondays-models-observability.md
 chapters:
   - time: '00:06'
     label: '- Welcome to Model Mondays from Redmond'

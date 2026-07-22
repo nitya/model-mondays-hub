@@ -25,7 +25,6 @@ metrics:
   likes: 17
   comments: 1
   updatedAt: '2026-07-22T03:56:38.668Z'
-transcriptPath: data/transcripts/model-mondays-next-gen-ui-experiences.md
 chapters:
   - time: '0:00'
     label: Welcome & Housekeeping

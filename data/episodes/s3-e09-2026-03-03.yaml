@@ -32,7 +32,6 @@ metrics:
   likes: 28
   comments: 0
   updatedAt: '2026-07-22T03:56:35.627Z'
-transcriptPath: data/transcripts/hands-on-with-black-forest-labs-microsoft-foundry-observability.md
 chapters:
   - time: '0:08'
     label: Welcome & Model Mondays Introduction

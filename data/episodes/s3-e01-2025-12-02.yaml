@@ -25,7 +25,6 @@ metrics:
   likes: 20
   comments: 0
   updatedAt: '2026-07-22T03:56:48.203Z'
-transcriptPath: data/transcripts/model-mondays-model-router.md
 chapters:
   - time: '0:00'
     label: Introduction and Housekeeping

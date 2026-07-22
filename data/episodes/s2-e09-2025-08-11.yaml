@@ -25,7 +25,6 @@ metrics:
   likes: 84
   comments: 0
   updatedAt: '2026-07-22T03:56:55.620Z'
-transcriptPath: data/transcripts/model-mondays-ai-agents.md
 chapters:
   - time: '00:00'
     label: '- Welcome to Model Mondays'

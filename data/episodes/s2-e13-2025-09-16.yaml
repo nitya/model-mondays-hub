@@ -24,7 +24,6 @@ metrics:
   likes: 29
   comments: 0
   updatedAt: '2026-07-22T03:56:49.568Z'
-transcriptPath: data/transcripts/model-mondays-open-source-models.md
 chapters:
   - time: '00:06'
     label: '- Welcome & Housekeeping Notes'

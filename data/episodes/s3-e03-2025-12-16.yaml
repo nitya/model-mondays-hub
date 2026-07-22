@@ -24,7 +24,6 @@ metrics:
   likes: 22
   comments: 1
   updatedAt: '2026-07-22T03:56:44.997Z'
-transcriptPath: data/transcripts/model-mondays-whats-new-in-foundry-local.md
 chapters:
   - time: '00:04'
     label: '- Welcome & Housekeeping'

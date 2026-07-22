@@ -23,7 +23,6 @@ metrics:
   likes: 58
   comments: 2
   updatedAt: '2026-07-22T03:56:43.319Z'
-transcriptPath: data/transcripts/model-mondays-microsoft-agent-framework.md
 chapters:
   - time: '00:06'
     label: – Welcome & Housekeeping

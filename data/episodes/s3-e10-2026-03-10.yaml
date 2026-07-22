@@ -25,7 +25,6 @@ metrics:
   likes: 23
   comments: 1
   updatedAt: '2026-07-22T03:56:33.990Z'
-transcriptPath: data/transcripts/model-mondays-ai-developer-experiences.md
 chapters:
   - time: '0:06'
     label: Welcome & Session Intro

@@ -22,6 +22,5 @@ metrics:
   likes: 25
   comments: 0
   updatedAt: '2026-07-22T03:57:16.420Z'
-transcriptPath: data/transcripts/model-mondays-hands-on-with-search-retrieval-models.md
 chapters: []
 provenance: scraped:youtube-playlist

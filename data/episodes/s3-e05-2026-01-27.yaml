@@ -31,7 +31,6 @@ metrics:
   likes: 25
   comments: 0
   updatedAt: '2026-07-22T03:56:41.746Z'
-transcriptPath: data/transcripts/model-mondays-code-first-with-responses-api.md
 chapters:
   - time: '0:08'
     label: – Welcome & Housekeeping

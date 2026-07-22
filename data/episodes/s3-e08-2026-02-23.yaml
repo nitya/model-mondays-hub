@@ -30,7 +30,6 @@ metrics:
   likes: 85
   comments: 0
   updatedAt: '2026-07-22T03:56:37.257Z'
-transcriptPath: data/transcripts/model-mondays-hands-on-with-claude-microsoft-foundry-agent.md
 chapters:
   - time: '0:06'
     label: Welcome & Model Mondays Introduction

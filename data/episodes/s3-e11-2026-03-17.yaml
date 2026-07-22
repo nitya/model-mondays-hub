@@ -22,7 +22,6 @@ metrics:
   likes: 39
   comments: 0
   updatedAt: '2026-07-22T03:56:32.490Z'
-transcriptPath: data/transcripts/model-mondays-whats-new-in-foundry-iq.md
 chapters:
   - time: '00:00'
     label: Welcome & Producer Intro

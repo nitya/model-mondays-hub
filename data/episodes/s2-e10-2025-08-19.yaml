@@ -25,7 +25,6 @@ metrics:
   likes: 32
   comments: 1
   updatedAt: '2026-07-22T03:56:54.042Z'
-transcriptPath: data/transcripts/model-mondays-document-processing.md
 chapters:
   - time: '00:00'
     label: '- Welcome & Housekeeping'

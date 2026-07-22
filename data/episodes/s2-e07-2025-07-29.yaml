@@ -27,7 +27,6 @@ metrics:
   likes: 44
   comments: 0
   updatedAt: '2026-07-22T03:56:58.614Z'
-transcriptPath: data/transcripts/model-mondays-ai-assisted-azure-development.md
 chapters:
   - time: '00:00'
     label: '- Welcome & Housekeeping'

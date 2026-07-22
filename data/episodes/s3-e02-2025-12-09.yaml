@@ -23,7 +23,6 @@ metrics:
   likes: 38
   comments: 0
   updatedAt: '2026-07-22T03:56:46.650Z'
-transcriptPath: data/transcripts/model-mondays-ai-red-teaming-agent.md
 chapters:
   - time: '00:05'
     label: '– Welcome & Housekeeping: Code of Conduct and Session Overview'

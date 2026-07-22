@@ -23,7 +23,6 @@ metrics:
   likes: 30
   comments: 0
   updatedAt: '2026-07-22T03:56:57.262Z'
-transcriptPath: data/transcripts/model-mondays-on-device-local-ai.md
 chapters:
   - time: '00:00'
     label: '- Welcome & Housekeeping'

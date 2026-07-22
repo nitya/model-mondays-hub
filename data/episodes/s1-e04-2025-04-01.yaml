@@ -22,7 +22,6 @@ metrics:
   likes: 25
   comments: 1
   updatedAt: '2026-07-22T03:57:14.876Z'
-transcriptPath: data/transcripts/model-mondays-hands-on-with-visual-generative-models.md
 chapters:
   - time: '00:09'
     label: Code of conduct

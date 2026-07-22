@@ -26,7 +26,6 @@ metrics:
   likes: 30
   comments: 0
   updatedAt: '2026-07-22T03:56:40.200Z'
-transcriptPath: data/transcripts/model-mondays-synthetic-data-generation.md
 chapters:
   - time: '0:00'
     label: – Welcome & Housekeeping
