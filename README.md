@@ -1,4 +1,4 @@
-# Model Mondays Hub
+# 🤖 Model Mondays Hub
 
 A data-first, agent-first knowledge base and website for **Model Mondays** —
 Microsoft's weekly AI livestream/podcast series, running for over a year and
