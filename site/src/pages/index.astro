@@ -121,16 +121,42 @@ const latestPost = posts[0];
   )}
 
   <style>
-    .hero { padding: 2rem 0 1rem; max-width: 720px; }
-    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0.5rem 0; }
-    .hero__lede { font-size: 1.05rem; }
-    .hero__actions { display: flex; gap: 0.75rem; margin-top: 1rem; }
+    .hero {
+      padding: 3rem 0 1.5rem;
+      max-width: 720px;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin: 0.75rem 0;
+      background: var(--mm-accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero__lede {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    .hero__actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
     .button--ghost {
       background: transparent;
       color: var(--mm-text);
-      border: 1px solid var(--mm-border);
+      border: 1.5px solid var(--mm-border);
+      box-shadow: none;
     }
-    .section { margin-top: 2.5rem; }
-    .section h2 { margin-bottom: 1rem; }
+    .button--ghost:hover {
+      border-color: var(--mm-accent);
+      color: var(--mm-accent);
+      background: var(--mm-accent-soft);
+      box-shadow: var(--mm-shadow-sm);
+    }
+    .section { margin-top: 3rem; }
+    .section h2 { margin-bottom: 1.25rem; }
   </style>
 </BaseLayout>
