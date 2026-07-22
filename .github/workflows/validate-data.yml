@@ -36,7 +36,7 @@ jobs:
         run: npm ci
 
       - name: Install site dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
         working-directory: site
 
       - name: Validate data
