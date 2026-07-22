@@ -5,6 +5,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Card from "../components/Card.astro";
 
 const base = import.meta.env.BASE_URL;
+const formatDate = (date: Date) =>
+  date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+const formatCompact = (value: number) =>
+  new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(value);
+const getEpisodeLabel = (seasonNumber: number | undefined, episodeId: string) => {
+  const match = episodeId.match(/s\d+-e(\d+)/i);
+  const episodeNumber = match ? Number(match[1]) : undefined;
+  if (seasonNumber == null || episodeNumber == null) return undefined;
+  return `S${seasonNumber} · E${episodeNumber}`;
+};
 
 const episodes = (await getCollection("episodes")).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
@@ -14,7 +24,20 @@ const upcoming = episodes.filter((e) => e.data.status !== "published").slice(0, 
 const latest = published.slice(0, 3);
 
 const seasons = await getCollection("seasons");
+const seasonById = new Map(seasons.map((season) => [season.id, season.data]));
 const activeSeason = seasons.find((s) => s.data.status === "upcoming") ?? seasons[0];
+
+const totalViews = published.reduce((sum, ep) => sum + (ep.data.metrics?.views ?? 0), 0);
+const totalLikes = published.reduce((sum, ep) => sum + (ep.data.metrics?.likes ?? 0), 0);
+const totalComments = published.reduce((sum, ep) => sum + (ep.data.metrics?.comments ?? 0), 0);
+
+const stats = [
+  { label: "Seasons", value: seasons.length.toLocaleString("en-US") },
+  { label: "Published Episodes", value: published.length.toLocaleString("en-US") },
+  { label: "Total Views", value: formatCompact(totalViews) },
+  { label: "Total Likes", value: formatCompact(totalLikes) },
+  { label: "Total Comments", value: formatCompact(totalComments) },
+];
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
@@ -43,6 +66,15 @@ const latestPost = posts[0];
     </div>
   </section>
 
+  <section class="stats-bar section" aria-label="Model Mondays stats">
+    {stats.map((stat) => (
+      <div class="stat-card">
+        <strong class="stat-card__value">{stat.value}</strong>
+        <span class="stat-card__label muted">{stat.label}</span>
+      </div>
+    ))}
+  </section>
+
   {latestPost && (
     <section class="section">
       <h2>Latest from the blog</h2>
@@ -60,7 +92,10 @@ const latestPost = posts[0];
         <Card
           href={`${base}episodes/${ep.id}/`}
           title={ep.data.title}
-          meta={ep.data.publishDate.toLocaleDateString()}
+          publishDate={formatDate(ep.data.publishDate)}
+          videoId={ep.data.youtubeVideoId}
+          seasonLabel={getEpisodeLabel(seasonById.get(ep.data.season)?.number, ep.id)}
+          views={ep.data.metrics?.views}
         />
       ))}
     </div>
@@ -74,7 +109,11 @@ const latestPost = posts[0];
           <Card
             href={`${base}episodes/${ep.id}/`}
             title={ep.data.title}
-            meta={ep.data.publishDate.toLocaleDateString()}
+            subtitle={ep.data.status !== "published" ? "Upcoming" : undefined}
+            publishDate={formatDate(ep.data.publishDate)}
+            videoId={ep.data.youtubeVideoId}
+            seasonLabel={getEpisodeLabel(seasonById.get(ep.data.season)?.number, ep.id)}
+            views={ep.data.metrics?.views}
           />
         ))}
       </div>

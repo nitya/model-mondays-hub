@@ -1,0 +1,16 @@
+id: season-2
+number: 2
+title: "Season 2: Deep Dives & Customer Stories"
+theme: >-
+  A 13-episode season with deep dives into advanced reasoning, MCP, SLMs,
+  developer experience, fine-tuning & distillation, research, Azure development,
+  on-device AI, agents, document processing, speech, observability, and
+  open-source models. Introduced Customer Stories segment with partners
+  like Capacity, SightMachine, Xander, Atomicwork, Oracle Health, Healow,
+  Saifr, and DraftWise.
+startDate: 2025-06-16
+endDate: 2025-09-16
+status: completed
+episodeCount: 13
+playlistUrl: https://www.youtube.com/playlist?list=PLmsFUfdnGr3wzz6a4E-Szksg92JPng-AL
+provenance: "verified:microsoft/model-mondays season-02 README"

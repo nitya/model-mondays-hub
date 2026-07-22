@@ -1,10 +1,10 @@
 id: jesse-cohere
-name: Jesse
+name: Jesse Feinman
 company: Cohere
 title: Cohere Team
 bio: >-
   Represents Cohere in the Model Mondays partner spotlight, covering Cohere's
-  enterprise-focused model families, retrieval-augmented generation, and the
-  new Cohere Transcribe ASR model.
+  enterprise-focused model families, retrieval-augmented generation, and the new
+  Cohere Transcribe ASR model.
 role: guest
 provenance: scraped:youtube-playlist

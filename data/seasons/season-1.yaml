@@ -1,0 +1,13 @@
+id: season-1
+number: 1
+title: "Season 1: Hands-On With Models"
+theme: >-
+  Our pilot season featured 8 episodes covering models and tools in
+  Microsoft Foundry — GitHub Models, reasoning, search & retrieval,
+  visual generative, fine-tuning, local AI, open-source, and forecasting.
+startDate: 2025-03-11
+endDate: 2025-04-29
+status: completed
+episodeCount: 8
+playlistUrl: https://www.youtube.com/playlist?list=PLmsFUfdnGr3wzz6a4E-Szksg92JPng-AL
+provenance: "verified:microsoft/model-mondays season-01 README"

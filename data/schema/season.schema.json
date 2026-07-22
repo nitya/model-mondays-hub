@@ -58,6 +58,11 @@
       "format": "uri",
       "description": "YouTube playlist URL for this season, if a dedicated one exists."
     },
+    "episodeCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of episodes planned or aired in this season."
+    },
     "provenance": {
       "type": "string",
       "description": "How this record was sourced, e.g. 'hand-curated:public-info' or 'hand-curated:season-schedule'."

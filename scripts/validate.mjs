@@ -22,9 +22,9 @@ addFormats(ajv);
 
 const RECORD_TYPES = [
   { name: "speaker", dir: SPEAKERS_DIR, schema: "speaker.schema.json" },
-  { name: "episode", dir: EPISODES_DIR, schema: "episode.schema.json" },
   { name: "season", dir: SEASONS_DIR, schema: "season.schema.json" },
   { name: "tag", dir: TAGS_DIR, schema: "tag.schema.json" },
+  { name: "episode", dir: EPISODES_DIR, schema: "episode.schema.json" },
 ];
 
 function loadYamlFiles(dir) {
