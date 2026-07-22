@@ -1,6 +1,6 @@
 # Copilot instructions for model-mondays-hub
 
-This file guides GitHub Copilot (chat, code review, and the coding agent)
+This file guides GitHub Copilot (chat, code review, and the cloud agent)
 when working in this repository. See also [`AGENTS.md`](../AGENTS.md) for
 the full agent operating model — this file is the condensed, Copilot-specific
 version.
@@ -38,10 +38,10 @@ explicitly in any PR description that depends on them:
    API v3 enabled, then add via Settings → Secrets and variables → Actions.
 2. **GitHub Pages** — Settings → Pages → Source = "GitHub Actions" (the
    `build-deploy.yml` workflow handles the rest).
-3. **GitHub Copilot coding agent** — Settings → Copilot → Coding agent must
+3. **GitHub Copilot cloud agent** — Settings → Copilot → enable "Cloud agent"
    be enabled for the repo so `issue-command.yml` can assign work to it.
 4. **`COPILOT_ASSIGN_PAT`** repo secret — a fine-grained PAT belonging to a
-   user with Copilot coding agent access (`Issues: write` permission), used
+   user with Copilot cloud agent access (`Issues: write` permission), used
    by `issue-command.yml` to assign the Data Ops issue to Copilot via the
    API (the default `GITHUB_TOKEN` cannot do this). Without it, the workflow
    still posts a comment identifying the parsed command so a maintainer can

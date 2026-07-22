@@ -1,6 +1,7 @@
 name: validate-data
 
-# Runs schema + cross-reference validation on every PR that touches data/.
+# Runs schema + cross-reference validation and builds the Astro site on every
+# PR that touches data, content, site source, or build/validation scripts.
 # Fast, no secrets required — a good gate before merging any Data Ops PR
 # (including ones opened automatically by the Copilot coding agent).
 
@@ -8,9 +9,12 @@ on:
   pull_request:
     paths:
       - "data/**"
-      - "scripts/validate.mjs"
-      - "scripts/lib/**"
-      - "data/schema/**"
+      - "content/**"
+      - "scripts/**"
+      - "site/src/**"
+      - "site/package.json"
+      - "site/astro.config.mjs"
+      - "package.json"
 
 jobs:
   validate:
@@ -24,9 +28,20 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            site/package-lock.json
 
-      - name: Install dependencies
+      - name: Install root dependencies
         run: npm ci
+
+      - name: Install site dependencies
+        run: npm install --no-audit --no-fund
+        working-directory: site
 
       - name: Validate data
         run: npm run validate
+
+      - name: Build site
+        run: npm run build
+        working-directory: site

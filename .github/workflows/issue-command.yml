@@ -12,15 +12,15 @@ name: issue-command
 # ---------------------------------------------------------------------------
 # MANUAL SETUP REQUIRED before this workflow can assign issues to Copilot:
 #
-#   1. Enable the Copilot coding agent for this repo:
-#      Settings → Copilot → Coding agent → turn it on for this repository.
+#   1. Enable the Copilot cloud agent for this repo:
+#      Settings → Copilot → enable "Cloud agent" for this repository.
 #      (Requires GitHub Copilot Business/Enterprise, or an individual Pro+
-#      plan with coding agent access.)
+#      plan with cloud agent access.)
 #
 #   2. Assigning an issue to Copilot via the API needs a token with Copilot
 #      agent rights — the default `GITHUB_TOKEN` is NOT sufficient. Create a
 #      fine-grained Personal Access Token (PAT) belonging to a user who has
-#      Copilot coding agent access, with "Issues: write" repo permission,
+#      Copilot cloud agent access, with "Issues: write" repo permission,
 #      and store it as the `COPILOT_ASSIGN_PAT` repository secret.
 #      (Settings → Secrets and variables → Actions → New repository secret.)
 #
@@ -54,12 +54,13 @@ jobs:
     steps:
       - name: Parse command
         id: parse
+        env:
+          # Pass untrusted user input via env vars — never interpolate
+          # ${{ github.event.comment.body }} directly into a run: block
+          # (script injection risk).
+          COMMENT_BODY: ${{ github.event.comment.body }}
         run: |
-          BODY=$(cat <<'EOF'
-          ${{ github.event.comment.body }}
-          EOF
-          )
-          FIRST_LINE=$(echo "$BODY" | head -n1)
+          FIRST_LINE=$(echo "$COMMENT_BODY" | head -n1)
           echo "command=$FIRST_LINE" >> "$GITHUB_OUTPUT"
           if [[ "$FIRST_LINE" == update\ speaker* ]]; then
             echo "skill=update-speaker" >> "$GITHUB_OUTPUT"
@@ -69,13 +70,17 @@ jobs:
             echo "skill=update-series" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Assign issue to Copilot coding agent
+      - name: Assign issue to Copilot cloud agent
         id: assign
-        if: ${{ secrets.COPILOT_ASSIGN_PAT != '' }}
         env:
           GH_TOKEN: ${{ secrets.COPILOT_ASSIGN_PAT }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        # Only runs when a COPILOT_ASSIGN_PAT secret is configured. Since
+        # secrets can't be referenced in if: expressions, we check via the
+        # env var the step already needs.
+        if: env.GH_TOKEN != ''
         run: |
-          gh issue edit "${{ github.event.issue.number }}" \
+          gh issue edit "$ISSUE_NUMBER" \
             --repo "${{ github.repository }}" \
             --add-assignee "@copilot"
           echo "assigned=true" >> "$GITHUB_OUTPUT"
@@ -83,14 +88,20 @@ jobs:
       - name: Comment with the parsed command (always, for traceability)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SKILL: ${{ steps.parse.outputs.skill }}
+          ASSIGNED: ${{ steps.assign.outputs.assigned }}
+          COMMAND: ${{ steps.parse.outputs.command }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
         run: |
-          SKILL="${{ steps.parse.outputs.skill }}"
-          ASSIGNED="${{ steps.assign.outputs.assigned }}"
           if [ "$ASSIGNED" = "true" ]; then
             STATUS="✅ Assigned this issue to **@copilot** to run the \`$SKILL\` skill."
           else
             STATUS="⚠️ \`COPILOT_ASSIGN_PAT\` secret is not configured, so this could not be auto-assigned. A maintainer can manually assign this issue to **Copilot** (Assignees → Copilot) to run the \`$SKILL\` skill — see \`skills/$SKILL/SKILL.md\`."
           fi
-          gh issue comment "${{ github.event.issue.number }}" \
+          gh issue comment "$ISSUE_NUMBER" \
             --repo "${{ github.repository }}" \
-            --body "$STATUS"$'\n\n'"Parsed command: \`${{ steps.parse.outputs.command }}\`"$'\n\n'"Reference: \`skills/$SKILL/SKILL.md\`"
+            --body "$STATUS
+
+          Parsed command: \`$COMMAND\`
+
+          Reference: \`skills/$SKILL/SKILL.md\`"

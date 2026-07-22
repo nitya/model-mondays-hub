@@ -1,4 +1,4 @@
-# Model Mondays Hub
+# 🤖 Model Mondays Hub
 
 A data-first, agent-first knowledge base and website for **Model Mondays** —
 Microsoft's weekly AI livestream/podcast series, running for over a year and
@@ -28,7 +28,7 @@ data — it does not own any content itself. This means:
   instead of silently breaking the site.
 - Repeatable tasks — adding a speaker, adding an episode, fetching a
   transcript, pulling YouTube stats — are implemented as **skills** in
-  `skills/` that both humans and the GitHub Copilot coding agent can run.
+  `skills/` that both humans and the GitHub Copilot cloud agent can run.
 
 See [`AGENTS.md`](./AGENTS.md) and
 [`.github/copilot-instructions.md`](./.github/copilot-instructions.md) for
@@ -111,7 +111,7 @@ season is intentionally deferred — see `AGENTS.md` for how to extend it.
 See [`.github/copilot-instructions.md`](./.github/copilot-instructions.md)
 for the full list of manual, one-time steps a maintainer must complete
 (enabling GitHub Pages, adding the `YOUTUBE_API_KEY` secret, enabling the
-GitHub Copilot coding agent, and creating/pinning the "Data Ops" issue).
+GitHub Copilot cloud agent, and creating/pinning the "Data Ops" issue).
 
 ## License
 
