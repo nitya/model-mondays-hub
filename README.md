@@ -38,12 +38,13 @@ the full agent operating model.
 
 ```
 data/
-  schema/       JSON Schemas: speaker, episode, season, tag
+  schema/       JSON Schemas: speaker, episode, season, tag, model
   speakers/     One YAML file per speaker
-  episodes/     One YAML file per episode
+  episodes/     One YAML file per episode (sN-eNN-yyyy-mm-dd.yaml)
   seasons/      One YAML file per season
   tags/         One YAML file per tag (category: model | technology | partner)
-  transcripts/  One Markdown transcript per episode
+  models/       One YAML file per AI model (links to ai.azure.com/catalog)
+  transcripts/  One Markdown transcript per episode (sN-eNN-yyyy-mm-dd.md)
   metrics/      Dated JSON snapshots of YouTube stats (cron-updated)
 content/
   blog/         Weekly newsletter-style blog posts (Markdown)

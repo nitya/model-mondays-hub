@@ -15,5 +15,6 @@ export const SEASONS_DIR = path.join(DATA_DIR, "seasons");
 export const TAGS_DIR = path.join(DATA_DIR, "tags");
 export const TRANSCRIPTS_DIR = path.join(DATA_DIR, "transcripts");
 export const METRICS_DIR = path.join(DATA_DIR, "metrics");
+export const MODELS_DIR = path.join(DATA_DIR, "models");
 export const CONTENT_BLOG_DIR = path.join(REPO_ROOT, "content", "blog");
 export const SITE_DIR = path.join(REPO_ROOT, "site");

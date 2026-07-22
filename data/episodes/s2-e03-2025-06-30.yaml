@@ -2,8 +2,8 @@
 id: s2-e03-2025-06-30
 title: Model Mondays - Small Language Models
 description: >-
-  Explore how compact language models are designed for high performance and efficiency, perfect for resource-limited
-  environments.
+  Explore how compact language models are designed for high performance and efficiency, perfect for
+  resource-limited environments.
 season: season-2
 publishDate: '2025-06-30'
 status: published
@@ -21,7 +21,6 @@ metrics:
   likes: 27
   comments: 0
   updatedAt: '2026-07-22T03:57:04.744Z'
-transcriptPath: data/transcripts/model-mondays-small-language-models.md
 chapters:
   - time: '00:00'
     label: – Welcome & Code of Conduct
@@ -84,10 +83,3 @@ chapters:
   - time: '36:15'
     label: – Wrap-Up & Upcoming Sessions
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

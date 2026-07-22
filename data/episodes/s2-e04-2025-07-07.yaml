@@ -2,9 +2,10 @@
 id: s2-e04-2025-07-07
 title: Model Mondays - AI & Developer Experience
 description: >-
-  How can we streamline the AI developer journey from model selection and usage to evaluation and app deployment? Join
-  us as we talk to Leo Yao about the AI Toolkit and Azure AI Foundry extensions for Visual Studio Code – and the key
-  capabilities they provide for generative AI app & agent development.
+  How can we streamline the AI developer journey from model selection and usage to evaluation and
+  app deployment? Join us as we talk to Leo Yao about the AI Toolkit and Azure AI Foundry extensions
+  for Visual Studio Code – and the key capabilities they provide for generative AI app & agent
+  development.
 season: season-2
 publishDate: '2025-07-07'
 status: published
@@ -16,14 +17,14 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - leo-yao
-tags: []
+tags:
+  - foundry-toolkit
 duration: 2023
 metrics:
   views: 1458
   likes: 34
   comments: 1
   updatedAt: '2026-07-22T03:57:03.309Z'
-transcriptPath: data/transcripts/model-mondays-ai-developer-experience.md
 chapters:
   - time: '00:00'
     label: '- Welcome & Code of Conduct'
@@ -58,10 +59,3 @@ chapters:
   - time: '32:00'
     label: '- Closing Remarks & Community Resources'
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

@@ -1,0 +1,232 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+const episodes = (await getCollection("episodes"))
+  .filter((ep) => ep.data.status === "published" && ep.data.metrics?.views != null)
+  .sort((a, b) => a.data.publishDate.valueOf() - b.data.publishDate.valueOf());
+
+const seasons = await getCollection("seasons");
+const seasonById = new Map(seasons.map((s) => [s.id, s.data]));
+
+const dataPoints = episodes.map((ep) => {
+  const match = ep.id.match(/s(\d+)-e(\d+)/i);
+  const seasonNum = match ? Number(match[1]) : 0;
+  const episodeNum = match ? Number(match[2]) : 0;
+  return {
+    id: ep.id,
+    title: ep.data.title.replace(/^Model Mondays\s*[-–—]\s*/i, ""),
+    date: ep.data.publishDate.toISOString().slice(0, 10),
+    views: ep.data.metrics?.views ?? 0,
+    likes: ep.data.metrics?.likes ?? 0,
+    season: seasonNum,
+    episode: episodeNum,
+    label: `S${seasonNum}·E${episodeNum}`,
+  };
+});
+
+const maxViews = Math.max(...dataPoints.map((d) => d.views), 1);
+---
+
+<BaseLayout title="Timeline" description="Episode views over time.">
+  <h1>Timeline</h1>
+  <p class="muted">Episode views over time — hover for details, click to visit.</p>
+
+  <div class="timeline-container" id="timeline">
+    <svg
+      class="timeline-svg"
+      viewBox="0 0 1000 400"
+      preserveAspectRatio="xMidYMid meet"
+      role="img"
+      aria-label="Episode views timeline chart"
+    >
+      <!-- Grid lines -->
+      {[0, 0.25, 0.5, 0.75, 1].map((frac) => {
+        const y = 360 - frac * 320;
+        const label = Math.round(frac * maxViews).toLocaleString();
+        return (
+          <>
+            <line x1="60" y1={y} x2="980" y2={y} class="timeline-grid" />
+            <text x="55" y={y + 4} class="timeline-axis-label" text-anchor="end">{label}</text>
+          </>
+        );
+      })}
+
+      <!-- Data points and line -->
+      {dataPoints.length > 1 && (
+        <polyline
+          class="timeline-line"
+          points={dataPoints.map((d, i) => {
+            const x = 60 + (i / (dataPoints.length - 1)) * 920;
+            const y = 360 - (d.views / maxViews) * 320;
+            return `${x},${y}`;
+          }).join(" ")}
+          fill="none"
+        />
+      )}
+
+      {dataPoints.map((d, i) => {
+        const x = 60 + (dataPoints.length > 1 ? (i / (dataPoints.length - 1)) * 920 : 460);
+        const y = 360 - (d.views / maxViews) * 320;
+        const seasonColors = ["var(--mm-accent)", "#2b8a3e", "#e8590c", "#1971c2"];
+        const color = seasonColors[(d.season - 1) % seasonColors.length] ?? "var(--mm-accent)";
+        return (
+          <a href={`${base}episodes/${d.id}/`} class="timeline-dot-link">
+            <circle
+              cx={x}
+              cy={y}
+              r="6"
+              class="timeline-dot"
+              style={`fill: ${color}`}
+              data-title={d.title}
+              data-views={d.views.toLocaleString()}
+              data-likes={d.likes.toLocaleString()}
+              data-date={d.date}
+              data-label={d.label}
+            />
+          </a>
+        );
+      })}
+
+      <!-- X-axis date labels (show ~6 evenly spaced) -->
+      {dataPoints.filter((_, i) => i % Math.max(1, Math.floor(dataPoints.length / 6)) === 0 || i === dataPoints.length - 1).map((d, idx, arr) => {
+        const origIdx = dataPoints.indexOf(d);
+        const x = 60 + (dataPoints.length > 1 ? (origIdx / (dataPoints.length - 1)) * 920 : 460);
+        return <text x={x} y="390" class="timeline-axis-label" text-anchor="middle">{d.date}</text>;
+      })}
+    </svg>
+
+    <!-- Tooltip -->
+    <div class="timeline-tooltip" id="timeline-tooltip" hidden>
+      <strong class="timeline-tooltip__title"></strong>
+      <span class="timeline-tooltip__label"></span>
+      <span class="timeline-tooltip__date"></span>
+      <span class="timeline-tooltip__views"></span>
+      <span class="timeline-tooltip__likes"></span>
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div class="timeline-legend">
+    <span class="timeline-legend__item"><span class="timeline-legend__dot" style="background: var(--mm-accent)"></span> Season 1</span>
+    <span class="timeline-legend__item"><span class="timeline-legend__dot" style="background: #2b8a3e"></span> Season 2</span>
+    <span class="timeline-legend__item"><span class="timeline-legend__dot" style="background: #e8590c"></span> Season 3</span>
+  </div>
+</BaseLayout>
+
+<style>
+  .timeline-container {
+    position: relative;
+    width: 100%;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  .timeline-svg {
+    width: 100%;
+    min-width: 600px;
+    height: auto;
+  }
+  .timeline-grid {
+    stroke: var(--mm-border);
+    stroke-width: 0.5;
+    stroke-dasharray: 4 4;
+  }
+  .timeline-line {
+    stroke: var(--mm-accent);
+    stroke-width: 2;
+    opacity: 0.3;
+  }
+  .timeline-axis-label {
+    font-size: 11px;
+    fill: var(--mm-text-muted);
+    font-family: var(--mm-font-mono);
+  }
+  .timeline-dot {
+    stroke: var(--mm-bg);
+    stroke-width: 2;
+    cursor: pointer;
+    transition: r 0.15s ease;
+  }
+  .timeline-dot:hover {
+    r: 9;
+    stroke-width: 3;
+  }
+  .timeline-dot-link {
+    text-decoration: none;
+  }
+  .timeline-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.6rem 0.9rem;
+    background: var(--mm-bg-elevated);
+    border: 1px solid var(--mm-border);
+    border-radius: var(--mm-radius);
+    box-shadow: var(--mm-shadow);
+    font-size: 0.82rem;
+    pointer-events: none;
+    z-index: 10;
+    white-space: nowrap;
+    transition: opacity 0.15s;
+  }
+  .timeline-tooltip[hidden] { opacity: 0; }
+  .timeline-tooltip__title { font-weight: 600; font-size: 0.88rem; }
+  .timeline-tooltip__label { color: var(--mm-accent); font-weight: 600; }
+  .timeline-tooltip__date { color: var(--mm-text-muted); }
+  .timeline-tooltip__views::before { content: "👁 "; }
+  .timeline-tooltip__likes::before { content: "👍 "; }
+  .timeline-legend {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+  }
+  .timeline-legend__item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .timeline-legend__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+</style>
+
+<script>
+  const container = document.getElementById("timeline");
+  const tooltip = document.getElementById("timeline-tooltip");
+  if (container && tooltip) {
+    const dots = container.querySelectorAll<SVGCircleElement>(".timeline-dot");
+    const titleEl = tooltip.querySelector(".timeline-tooltip__title")!;
+    const labelEl = tooltip.querySelector(".timeline-tooltip__label")!;
+    const dateEl = tooltip.querySelector(".timeline-tooltip__date")!;
+    const viewsEl = tooltip.querySelector(".timeline-tooltip__views")!;
+    const likesEl = tooltip.querySelector(".timeline-tooltip__likes")!;
+
+    dots.forEach((dot) => {
+      dot.addEventListener("mouseenter", (e) => {
+        titleEl.textContent = dot.dataset.title ?? "";
+        labelEl.textContent = dot.dataset.label ?? "";
+        dateEl.textContent = dot.dataset.date ?? "";
+        viewsEl.textContent = `${dot.dataset.views} views`;
+        likesEl.textContent = `${dot.dataset.likes} likes`;
+        tooltip.hidden = false;
+
+        const rect = container.getBoundingClientRect();
+        const dotRect = dot.getBoundingClientRect();
+        tooltip.style.left = `${dotRect.left - rect.left + 12}px`;
+        tooltip.style.top = `${dotRect.top - rect.top - 80}px`;
+      });
+
+      dot.addEventListener("mouseleave", () => {
+        tooltip.hidden = true;
+      });
+    });
+  }
+</script>

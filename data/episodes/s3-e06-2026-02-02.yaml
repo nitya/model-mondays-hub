@@ -2,9 +2,9 @@
 id: s3-e06-2026-02-02
 title: Model Mondays - Synthetic Data Generation
 description: >-
-  Your model development is only as good as the evaluation and fine-tuning datasets you use! But finding high-quality,
-  safe and diverse data is a challenge. Join us as we talk to William Liang about Synthetic Data Generation capabilities
-  in Microsoft Foundry.
+  Your model development is only as good as the evaluation and fine-tuning datasets you use! But
+  finding high-quality, safe and diverse data is a challenge. Join us as we talk to William Liang
+  about Synthetic Data Generation capabilities in Microsoft Foundry.
 season: season-3
 publishDate: '2026-02-02'
 status: published
@@ -18,14 +18,14 @@ speakers:
   - bethany-jepchumba
   - dave-voutila
   - guy-gregory
-tags: []
+tags:
+  - foundry-toolkit
 duration: 2494
 metrics:
   views: 735
   likes: 30
   comments: 0
   updatedAt: '2026-07-22T03:56:40.200Z'
-transcriptPath: data/transcripts/model-mondays-synthetic-data-generation.md
 chapters:
   - time: '0:00'
     label: – Welcome & Housekeeping
@@ -94,10 +94,3 @@ chapters:
   - time: '39:14'
     label: – Closing Remarks & Upcoming Sessions
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

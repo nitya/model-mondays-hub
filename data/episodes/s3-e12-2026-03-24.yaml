@@ -2,11 +2,11 @@
 id: s3-e12-2026-03-24
 title: Model Mondays - Open Models with Fireworks AI & Microsoft Foundry MCP Server
 description: >-
-  Partner Spotlight - Running Open Models at Scale: Fireworks AI on Microsoft Foundry Choosing a model is easy. Scaling
-  it reliably is the hard part. In this Model Mondays session, join Shaunak Godbole, Field CTO at Fireworks AI, for
-  interactive demos and a deeper look at how developers can run best‑in‑class open models at scale without managing
-  infrastructure, including bringing the models they already trust through bring‑your‑own‑weights with Fireworks on
-  Microsoft Foundry.
+  Partner Spotlight - Running Open Models at Scale: Fireworks AI on Microsoft Foundry Choosing a
+  model is easy. Scaling it reliably is the hard part. In this Model Mondays session, join Shaunak
+  Godbole, Field CTO at Fireworks AI, for interactive demos and a deeper look at how developers can
+  run best‑in‑class open models at scale without managing infrastructure, including bringing the
+  models they already trust through bring‑your‑own‑weights with Fireworks on Microsoft Foundry.
 season: season-3
 publishDate: '2026-03-24'
 status: published
@@ -19,7 +19,10 @@ segmentType:
 speakers:
   - april-speight
   - rong-lu
-tags: []
+tags:
+  - fireworks-ai
+  - mcp-servers
+  - foundry-toolkit
 duration: 3955
 metrics:
   views: 781
@@ -75,22 +78,3 @@ chapters:
   - time: '1:02:34'
     label: – Upcoming Sessions & Closing Remarks
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview
-summary:
-  highlights:
-    - Discussion of model selection and deployment strategies
-    - Live demonstration of platform capabilities
-    - Open source model ecosystem and community contributions
-    - Enterprise-grade AI deployment considerations
-  techSpotlights:
-    - API/SDK integration patterns for model consumption
-    - Model inference optimization and scaling
-    - Fine-tuning workflows and customization
-  partnerSpotlights:
-    - 'Fireworks AI: Running open models at scale without managing infrastructure'

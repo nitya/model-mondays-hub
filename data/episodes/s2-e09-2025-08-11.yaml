@@ -2,9 +2,9 @@
 id: s2-e09-2025-08-11
 title: Model Mondays - AI Agents
 description: >-
-  Want to build agentic AI applications but looking for resources to learn configuration and design patterns? Join us as
-  we talk to Mona Whalin about the Azure AI Foundry Agent Catalog – open-source samples you can explore to accelerate
-  your agent development by integration into projects!
+  Want to build agentic AI applications but looking for resources to learn configuration and design
+  patterns? Join us as we talk to Mona Whalin about the Azure AI Foundry Agent Catalog – open-source
+  samples you can explore to accelerate your agent development by integration into projects!
 season: season-2
 publishDate: '2025-08-11'
 status: published
@@ -16,14 +16,15 @@ speakers:
   - nitya-narasimhan
   - mona-whalin
   - sukrit-chatterjee
-tags: []
+tags:
+  - foundry-toolkit
+  - agent-365
 duration: 3205
 metrics:
   views: 2518
   likes: 84
   comments: 0
   updatedAt: '2026-07-22T03:56:55.620Z'
-transcriptPath: data/transcripts/model-mondays-ai-agents.md
 chapters:
   - time: '00:00'
     label: '- Welcome to Model Mondays'
@@ -60,10 +61,3 @@ chapters:
   - time: '51:50'
     label: '- Closing & Feedback Links'
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

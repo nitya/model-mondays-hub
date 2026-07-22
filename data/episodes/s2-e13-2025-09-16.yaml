@@ -2,9 +2,9 @@
 id: s2-e13-2025-09-16
 title: Model Mondays - Open Source Models
 description: >-
-  Did you know the Hugging Face collection on Azure AI Foundry Models currently has over 10K options? When should we use
-  them and how do we select the right one? Join us as we talk about getting started with Hugging Face models on Azure AI
-  – and how you can request new additions.
+  Did you know the Hugging Face collection on Azure AI Foundry Models currently has over 10K
+  options? When should we use them and how do we select the right one? Join us as we talk about
+  getting started with Hugging Face models on Azure AI – and how you can request new additions.
 season: season-2
 publishDate: '2025-09-16'
 status: published
@@ -15,14 +15,15 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - jeff-boudier
-tags: []
+tags:
+  - hugging-face
+  - foundry-toolkit
 duration: 4024
 metrics:
   views: 929
   likes: 29
   comments: 0
   updatedAt: '2026-07-22T03:56:49.568Z'
-transcriptPath: data/transcripts/model-mondays-open-source-models.md
 chapters:
   - time: '00:06'
     label: '- Welcome & Housekeeping Notes'
@@ -49,10 +50,3 @@ chapters:
   - time: '59:29'
     label: '- Season 3 Preview & Community Engagement'
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

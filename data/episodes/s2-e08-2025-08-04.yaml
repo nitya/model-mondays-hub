@@ -2,9 +2,9 @@
 id: s2-e08-2025-08-04
 title: Model Mondays - On-Device & Local AI
 description: >-
-  On-device inference is critical if you want to run AI models locally, on your own hardware, e.g., for edge computing
-  needs. Join as we talk to Maanav Dalal about Foundry Local – a solution built on ONNX Runtime (for use in CPUs, NPUs &
-  GPUs) & taking you from prototype to production.
+  On-device inference is critical if you want to run AI models locally, on your own hardware, e.g.,
+  for edge computing needs. Join as we talk to Maanav Dalal about Foundry Local – a solution built
+  on ONNX Runtime (for use in CPUs, NPUs & GPUs) & taking you from prototype to production.
 season: season-2
 publishDate: '2025-08-04'
 status: published
@@ -15,14 +15,14 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - maanav-dalal
-tags: []
+tags:
+  - foundry-toolkit
 duration: 3095
 metrics:
   views: 1299
   likes: 30
   comments: 0
   updatedAt: '2026-07-22T03:56:57.262Z'
-transcriptPath: data/transcripts/model-mondays-on-device-local-ai.md
 chapters:
   - time: '00:00'
     label: '- Welcome & Housekeeping'
@@ -51,10 +51,3 @@ chapters:
   - time: '49:59'
     label: '- Wrap-Up & Next Week Preview'
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

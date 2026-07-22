@@ -2,9 +2,9 @@
 id: s1-e03-2025-03-24
 title: Model Mondays - Hands-on with Search & Retrieval Models
 description: >-
-  In this episode, we’ll dive into the world of retrieval augmented generation (RAG). We’ll explore models that can
-  improve the accuracy of search, retrieval and semantic relevance of returned results – and how you can use them to
-  ground your generative AI app in your data!
+  In this episode, we’ll dive into the world of retrieval augmented generation (RAG). We’ll explore
+  models that can improve the accuracy of search, retrieval and semantic relevance of returned
+  results – and how you can use them to ground your generative AI app in your data!
 season: season-1
 publishDate: '2025-03-24'
 status: published
@@ -22,13 +22,5 @@ metrics:
   likes: 25
   comments: 0
   updatedAt: '2026-07-22T03:57:16.420Z'
-transcriptPath: data/transcripts/model-mondays-hands-on-with-search-retrieval-models.md
 chapters: []
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

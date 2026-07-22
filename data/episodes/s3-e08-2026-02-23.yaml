@@ -4,10 +4,11 @@ title: Model Mondays - Hands on With Claude + Microsoft Foundry Agent
 description: >-
   Partner Spotlight- Topic: Hands on With Claude in Microsoft Foundry 
 
-  Join Anthropic for interactive demos of the Claude model family in Microsoft Foundry. They will share guidance on when
-  to use each model and showcase Claude Opus 4.6, Anthropic's most capable model to date, as it connects insights across
-  complex data and automates multi-step tasks. We will also have Scott Kennedy, VP of Engineering at Replit, joining us
-  to showcase how they use Claude models in their production use case.
+  Join Anthropic for interactive demos of the Claude model family in Microsoft Foundry. They will
+  share guidance on when to use each model and showcase Claude Opus 4.6, Anthropic's most capable
+  model to date, as it connects insights across complex data and automates multi-step tasks. We will
+  also have Scott Kennedy, VP of Engineering at Replit, joining us to showcase how they use Claude
+  models in their production use case.
 season: season-3
 publishDate: '2026-02-23'
 status: published
@@ -21,14 +22,14 @@ segmentType:
 speakers:
   - nitya-narasimhan
   - amir-zur
-tags: []
+tags:
+  - foundry-toolkit
 duration: 4469
 metrics:
   views: 5804
   likes: 85
   comments: 0
   updatedAt: '2026-07-22T03:56:37.257Z'
-transcriptPath: data/transcripts/model-mondays-hands-on-with-claude-microsoft-foundry-agent.md
 chapters:
   - time: '0:06'
     label: Welcome & Model Mondays Introduction
@@ -97,10 +98,3 @@ chapters:
   - time: '1:13:09'
     label: Closing Remarks
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

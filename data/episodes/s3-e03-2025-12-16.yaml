@@ -2,8 +2,9 @@
 id: s3-e03-2025-12-16
 title: Model Mondays - What’s New In Foundry Local​
 description: >-
-  Foundry Local provides on-device inference with data privacy, bringing the power of Azure AI with multi-language SDKs
-  to local environments. Join us as we talk to Maanav Dalal about the latest updates to Foundry Local.
+  Foundry Local provides on-device inference with data privacy, bringing the power of Azure AI with
+  multi-language SDKs to local environments. Join us as we talk to Maanav Dalal about the latest
+  updates to Foundry Local.
 season: season-3
 publishDate: '2025-12-16'
 status: published
@@ -15,14 +16,14 @@ segmentType:
 speakers:
   - lee-stott
   - maanav-dalal
-tags: []
+tags:
+  - foundry-toolkit
 duration: 3355
 metrics:
   views: 776
   likes: 22
   comments: 1
   updatedAt: '2026-07-22T03:56:44.997Z'
-transcriptPath: data/transcripts/model-mondays-whats-new-in-foundry-local.md
 chapters:
   - time: '00:04'
     label: '- Welcome & Housekeeping'
@@ -69,10 +70,3 @@ chapters:
   - time: '54:42'
     label: '- Closing Remarks & Feedback'
 provenance: scraped:youtube-playlist
-resources:
-  - title: Azure AI Foundry documentation
-    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
-    type: documentation
-  - title: Model Mondays series (RSVP)
-    url: https://developer.microsoft.com/reactor/series/S-1485
-    type: overview

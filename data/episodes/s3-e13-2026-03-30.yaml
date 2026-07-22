@@ -20,16 +20,17 @@ segmentType:
 speakers:
   - carlotta-castelluccio
   - farzad-sunavala
-tags: []
+tags:
+  - hugging-face
+  - foundry-toolkit
+  - work-iq
 duration: 3854
 metrics:
   views: 1042
   likes: 37
   comments: 1
   updatedAt: '2026-07-22T03:56:29.282Z'
-transcriptPath: >-
-  data/transcripts/s3-e13-2026-03-30.md
-  data/transcripts/model-mondays-build-ai-with-hugging-face-build-enterprise-agents-with-agent-365-work-iq.md
+transcriptPath: data/transcripts/s3-e13-2026-03-30.md
 chapters:
   - time: '0:08'
     label: Welcome & Housekeeping
