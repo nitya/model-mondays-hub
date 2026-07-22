@@ -32,8 +32,8 @@ const byCategory = {
     />
     {sortable && (
       <select class="mm-gallery__sort" aria-label="Sort by">
-        <option value="date-desc">Newest first</option>
         <option value="date-asc">Oldest first</option>
+        <option value="date-desc">Newest first</option>
         <option value="title-asc">Title A–Z</option>
         <option value="title-desc">Title Z–A</option>
       </select>
@@ -200,6 +200,7 @@ const byCategory = {
     tagCheckboxes.forEach((cb) => cb.addEventListener("change", applyFilters));
     sortSelect?.addEventListener("change", applySort);
 
+    applySort();
     applyFilters();
   });
 </script>
