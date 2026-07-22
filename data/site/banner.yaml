@@ -1,0 +1,10 @@
+---
+# Site banner configuration
+# Set enabled: true to show, false to hide
+enabled: true
+text: "🎉 Season 4 kicks off Aug 10 — Register now!"
+link: "https://aka.ms/model-mondays/rsvp"
+linkText: "RSVP →"
+dismissable: true
+# theme: accent | gold | teal
+theme: accent
