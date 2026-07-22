@@ -39,6 +39,7 @@ let totalFiles = 0;
 let totalErrors = 0;
 const idsByType = {};
 const errors = [];
+const episodeDocs = []; // Cache parsed episode docs for cross-reference pass
 
 for (const { name, dir, schema } of RECORD_TYPES) {
   const schemaPath = path.join(SCHEMA_DIR, schema);
@@ -81,15 +82,18 @@ for (const { name, dir, schema } of RECORD_TYPES) {
       errors.push(`${name} ${fileName}: duplicate id "${doc.id}"`);
     }
     idsByType[name].add(doc.id);
+
+    // Cache parsed episode docs for cross-reference validation below.
+    if (name === "episode" && doc) {
+      episodeDocs.push({ fileName, doc });
+    }
   }
 }
 
 // Cross-reference validation: episodes must reference existing speakers,
-// tags, and seasons.
-for (const { file, name: fileName } of loadYamlFiles(EPISODES_DIR)) {
-  const doc = yaml.load(fs.readFileSync(file, "utf8"), { schema: yaml.JSON_SCHEMA });
-  if (!doc) continue;
-
+// tags, and seasons. Reuses the cached docs from the schema pass above
+// (no second file read).
+for (const { fileName, doc } of episodeDocs) {
   if (doc.season && !idsByType.season.has(doc.season)) {
     totalErrors += 1;
     errors.push(`episode ${fileName}: unknown season "${doc.season}"`);
