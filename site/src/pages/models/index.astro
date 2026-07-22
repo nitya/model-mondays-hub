@@ -25,17 +25,17 @@ const symbols: Record<string, string> = {
   "whisper": "Wh",
 };
 
-// Category color mapping
+// Category keys (colors are now CSS custom properties for dark mode support)
 const categoryColors: Record<string, string> = {
-  language: "#5b21b6",
-  reasoning: "#0d9488",
-  vision: "#b45309",
-  multimodal: "#7c3aed",
-  "image-generation": "#db2777",
-  "small-language": "#166534",
-  speech: "#0369a1",
-  code: "#4338ca",
-  other: "#6b7280",
+  language: "var(--cat-language)",
+  reasoning: "var(--cat-reasoning)",
+  vision: "var(--cat-vision)",
+  multimodal: "var(--cat-multimodal)",
+  "image-generation": "var(--cat-image-generation)",
+  "small-language": "var(--cat-small-language)",
+  speech: "var(--cat-speech)",
+  code: "var(--cat-code)",
+  other: "var(--cat-other)",
 };
 
 const categoryLabels: Record<string, string> = {
@@ -165,7 +165,7 @@ for (const m of models) {
       <h2>How to read</h2>
       <div class="pt-guide__grid">
         <div class="pt-guide__item">
-          <div class="pt-element pt-element--demo" style="--el-color: #5b21b6">
+          <div class="pt-element pt-element--demo" style="--el-color: var(--cat-language)">
             <span class="pt-element__number">3</span>
             <span class="pt-element__symbol">Gp</span>
             <span class="pt-element__name">GPT-4</span>
@@ -186,6 +186,44 @@ for (const m of models) {
   </div>
 
   <style>
+    /* Category colors — light mode */
+    :root, [data-theme="light"] {
+      --cat-language: #5b21b6;
+      --cat-reasoning: #0d9488;
+      --cat-vision: #b45309;
+      --cat-multimodal: #7c3aed;
+      --cat-image-generation: #db2777;
+      --cat-small-language: #166534;
+      --cat-speech: #0369a1;
+      --cat-code: #4338ca;
+      --cat-other: #6b7280;
+    }
+    /* Brighter variants for dark mode */
+    [data-theme="dark"] {
+      --cat-language: #c4b5fd;
+      --cat-reasoning: #5eead4;
+      --cat-vision: #fbbf24;
+      --cat-multimodal: #a78bfa;
+      --cat-image-generation: #f472b6;
+      --cat-small-language: #4ade80;
+      --cat-speech: #38bdf8;
+      --cat-code: #818cf8;
+      --cat-other: #9ca3af;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --cat-language: #c4b5fd;
+        --cat-reasoning: #5eead4;
+        --cat-vision: #fbbf24;
+        --cat-multimodal: #a78bfa;
+        --cat-image-generation: #f472b6;
+        --cat-small-language: #4ade80;
+        --cat-speech: #38bdf8;
+        --cat-code: #818cf8;
+        --cat-other: #9ca3af;
+      }
+    }
+
     .pt-page { max-width: 1000px; }
     .pt-header { margin-bottom: 1.5rem; }
     .pt-header h1 { margin-bottom: 0.4rem; }
