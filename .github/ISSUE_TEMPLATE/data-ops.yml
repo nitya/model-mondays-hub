@@ -1,0 +1,35 @@
+name: Data Ops
+description: >-
+  The permanently-open, pinned issue used to trigger agent-driven data
+  updates (speakers, episodes, seasons) via comments. See
+  docs/data-ops-issue.md for how to create and pin this issue.
+title: "Data Ops"
+labels: ["data-ops"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## How to use this issue
+
+        Comment on this issue with one of the following commands to trigger
+        an agent-driven data update. The `.github/workflows/issue-command.yml`
+        workflow watches for these and assigns the issue to the GitHub
+        Copilot coding agent, which runs the matching skill and opens a PR.
+
+        - `update speaker <url-or-name> [title:"..."] [company:"..."]`
+        - `update episode <youtube-url> [season:season-4] [speakers:a,b] [tags:a,b]`
+        - `update series season id:season-5 number:5 title:"Season 5" start:2027-02-01`
+        - `update series placeholders season:season-5 start:2027-02-01 weeks:12 [skip:YYYY-MM-DD=Reason]`
+
+        See `skills/*/SKILL.md` for full details on each command's inputs.
+
+        **Do not close this issue** — it should stay open indefinitely as the
+        standing entry point for data operations. Pin it so it's easy to find.
+  - type: textarea
+    id: command
+    attributes:
+      label: (Optional) Initial command
+      description: You can also seed the first command here when filing the issue.
+      placeholder: "update episode https://www.youtube.com/watch?v=XXXXXXXXXXX season:season-4"
+    validations:
+      required: false

@@ -1,0 +1,4 @@
+id: hugging-face-models
+label: Hugging Face Models
+category: model
+description: Open-source models hosted on the Hugging Face Hub.

@@ -1,0 +1,15 @@
+id: season-3
+number: 3
+title: Season 3
+theme: >-
+  Build your Model IQ one week at a time — Tech Spotlights, Customer Stories,
+  Study Corner, and Partner Spotlights across the Microsoft Foundry model
+  catalog.
+startDate: 2026-03-24
+endDate: 2026-04-21
+status: completed
+provenance: >-
+  hand-curated:public-info — startDate reflects the earliest episode seeded
+  in this repo so far (2026-03-24), not necessarily the true season premiere;
+  full historical backfill is deferred, see AGENTS.md.
+

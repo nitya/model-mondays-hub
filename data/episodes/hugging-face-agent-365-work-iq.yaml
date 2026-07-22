@@ -1,0 +1,44 @@
+id: hugging-face-agent-365-work-iq
+title: >-
+  Build AI with Hugging Face Models, Build Enterprise Agents With Agent 365 &
+  Work IQ
+description: >-
+  Partner Spotlight: Jeff Boudier from Hugging Face shows how to deploy open
+  models securely with Microsoft Foundry. Technology Spotlight: Srikumar Nair
+  explains how Agent 365 and Work IQ MCP servers turn productivity systems
+  into governable tools for enterprise agents.
+season: season-3
+publishDate: 2026-03-30
+status: published
+youtubeVideoId: Kd6EPBfvDo4
+youtubeUrl: https://www.youtube.com/watch?v=Kd6EPBfvDo4
+segmentType:
+  - partner-spotlight
+  - tech-spotlight
+speakers:
+  - nitya-narasimhan
+  - jeff-boudier
+  - srikumar-nair
+tags:
+  - hugging-face
+  - hugging-face-models
+  - agent-365
+  - work-iq
+duration: 3854
+metrics:
+  views: 1042
+  likes: 37
+  updatedAt: "2026-07-22T02:00:00.000Z"
+transcriptPath: data/transcripts/hugging-face-agent-365-work-iq.md
+chapters:
+  - time: "1:26"
+    label: Meet Hugging Face (Jeff B.)
+  - time: "10:49"
+    label: Hugging Face x Microsoft Foundry
+  - time: "40:04"
+    label: Intro to Agent 365
+  - time: "45:31"
+    label: Work IQ MCP Servers Explained
+  - time: "47:49"
+    label: What is Agent 365?
+provenance: scraped:youtube-playlist

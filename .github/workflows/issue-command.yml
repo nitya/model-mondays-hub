@@ -1,0 +1,96 @@
+name: issue-command
+
+# Watches comments on the pinned "Data Ops" issue for commands like:
+#   update speaker https://www.linkedin.com/in/janedoe
+#   update episode https://www.youtube.com/watch?v=XXXXXXXXXXX season:season-4
+#   update series placeholders season:season-5 start:2027-02-01 weeks:12
+#
+# When a match is found, it assigns the issue to the GitHub Copilot coding
+# agent, which reads the comment + linked skills/*/SKILL.md, runs the
+# matching script under scripts/, validates the data, and opens a PR.
+#
+# ---------------------------------------------------------------------------
+# MANUAL SETUP REQUIRED before this workflow can assign issues to Copilot:
+#
+#   1. Enable the Copilot coding agent for this repo:
+#      Settings → Copilot → Coding agent → turn it on for this repository.
+#      (Requires GitHub Copilot Business/Enterprise, or an individual Pro+
+#      plan with coding agent access.)
+#
+#   2. Assigning an issue to Copilot via the API needs a token with Copilot
+#      agent rights — the default `GITHUB_TOKEN` is NOT sufficient. Create a
+#      fine-grained Personal Access Token (PAT) belonging to a user who has
+#      Copilot coding agent access, with "Issues: write" repo permission,
+#      and store it as the `COPILOT_ASSIGN_PAT` repository secret.
+#      (Settings → Secrets and variables → Actions → New repository secret.)
+#
+#   3. If `COPILOT_ASSIGN_PAT` isn't configured, this workflow still posts a
+#      comment identifying the requested skill + args — a maintainer can then
+#      manually assign the issue to Copilot (Assignees → Copilot) to kick off
+#      the same run by hand.
+# ---------------------------------------------------------------------------
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  dispatch:
+    # Only act on comments on issues labeled "data-ops" (the pinned Data Ops
+    # issue — see .github/ISSUE_TEMPLATE/data-ops.yml and docs/data-ops-issue.md)
+    # that match one of the supported commands.
+    if: >
+      contains(github.event.issue.labels.*.name, 'data-ops') &&
+      (
+        startsWith(github.event.comment.body, 'update speaker') ||
+        startsWith(github.event.comment.body, 'update episode') ||
+        startsWith(github.event.comment.body, 'update series')
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - name: Parse command
+        id: parse
+        run: |
+          BODY=$(cat <<'EOF'
+          ${{ github.event.comment.body }}
+          EOF
+          )
+          FIRST_LINE=$(echo "$BODY" | head -n1)
+          echo "command=$FIRST_LINE" >> "$GITHUB_OUTPUT"
+          if [[ "$FIRST_LINE" == update\ speaker* ]]; then
+            echo "skill=update-speaker" >> "$GITHUB_OUTPUT"
+          elif [[ "$FIRST_LINE" == update\ episode* ]]; then
+            echo "skill=update-episode" >> "$GITHUB_OUTPUT"
+          elif [[ "$FIRST_LINE" == update\ series* ]]; then
+            echo "skill=update-series" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Assign issue to Copilot coding agent
+        id: assign
+        if: ${{ secrets.COPILOT_ASSIGN_PAT != '' }}
+        env:
+          GH_TOKEN: ${{ secrets.COPILOT_ASSIGN_PAT }}
+        run: |
+          gh issue edit "${{ github.event.issue.number }}" \
+            --repo "${{ github.repository }}" \
+            --add-assignee "@copilot"
+          echo "assigned=true" >> "$GITHUB_OUTPUT"
+
+      - name: Comment with the parsed command (always, for traceability)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          SKILL="${{ steps.parse.outputs.skill }}"
+          ASSIGNED="${{ steps.assign.outputs.assigned }}"
+          if [ "$ASSIGNED" = "true" ]; then
+            STATUS="✅ Assigned this issue to **@copilot** to run the \`$SKILL\` skill."
+          else
+            STATUS="⚠️ \`COPILOT_ASSIGN_PAT\` secret is not configured, so this could not be auto-assigned. A maintainer can manually assign this issue to **Copilot** (Assignees → Copilot) to run the \`$SKILL\` skill — see \`skills/$SKILL/SKILL.md\`."
+          fi
+          gh issue comment "${{ github.event.issue.number }}" \
+            --repo "${{ github.repository }}" \
+            --body "$STATUS"$'\n\n'"Parsed command: \`${{ steps.parse.outputs.command }}\`"$'\n\n'"Reference: \`skills/$SKILL/SKILL.md\`"

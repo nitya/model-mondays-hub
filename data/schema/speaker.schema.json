@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://model-mondays-hub/schema/speaker.schema.json",
+  "title": "Speaker",
+  "description": "A guest or host who has appeared on Model Mondays.",
+  "type": "object",
+  "required": ["id", "name"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Slug identifier, matches the YAML filename without extension.",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Full display name."
+    },
+    "title": {
+      "type": "string",
+      "description": "Job title / role, e.g. 'Field CTO'."
+    },
+    "company": {
+      "type": "string",
+      "description": "Employer or affiliated organization."
+    },
+    "bio": {
+      "type": "string",
+      "description": "Short biography, 1-3 sentences."
+    },
+    "avatar": {
+      "type": "string",
+      "description": "Path or URL to a profile image."
+    },
+    "role": {
+      "type": "string",
+      "enum": ["host", "guest", "producer"],
+      "default": "guest",
+      "description": "Primary role on the series."
+    },
+    "links": {
+      "type": "object",
+      "description": "Social / web links keyed by platform.",
+      "additionalProperties": {
+        "type": "string",
+        "format": "uri"
+      },
+      "properties": {
+        "website": { "type": "string", "format": "uri" },
+        "linkedin": { "type": "string", "format": "uri" },
+        "twitter": { "type": "string", "format": "uri" },
+        "github": { "type": "string", "format": "uri" },
+        "mastodon": { "type": "string", "format": "uri" }
+      }
+    },
+    "provenance": {
+      "type": "string",
+      "description": "How this record was sourced, e.g. 'scraped:youtube-playlist' or 'hand-curated:public-bio'."
+    }
+  }
+}

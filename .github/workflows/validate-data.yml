@@ -1,0 +1,32 @@
+name: validate-data
+
+# Runs schema + cross-reference validation on every PR that touches data/.
+# Fast, no secrets required — a good gate before merging any Data Ops PR
+# (including ones opened automatically by the Copilot coding agent).
+
+on:
+  pull_request:
+    paths:
+      - "data/**"
+      - "scripts/validate.mjs"
+      - "scripts/lib/**"
+      - "data/schema/**"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate data
+        run: npm run validate

@@ -1,0 +1,154 @@
+---
+// site/src/pages/episodes/[slug].astro
+import { getCollection, getEntry, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TagPill from "../../components/TagPill.astro";
+
+export async function getStaticPaths() {
+  const episodes = await getCollection("episodes");
+  return episodes.map((ep) => ({ params: { slug: ep.id }, props: { ep } }));
+}
+
+const { ep } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const allSpeakers = await getCollection("speakers");
+const speakerById = new Map(allSpeakers.map((s) => [s.id, s.data]));
+const speakers = ep.data.speakers
+  .map((id) => ({ id, data: speakerById.get(id) }))
+  .filter((s) => Boolean(s.data)) as { id: string; data: NonNullable<ReturnType<typeof speakerById.get>> }[];
+
+const allTags = await getCollection("tags");
+const tagById = new Map(allTags.map((t) => [t.id, t.data]));
+const tags = ep.data.tags
+  .map((id) => tagById.get(id))
+  .filter((t) => Boolean(t)) as NonNullable<ReturnType<typeof tagById.get>>[];
+
+const season = await getEntry("seasons", ep.data.season);
+
+let transcript: Awaited<ReturnType<typeof render>> | null = null;
+if (ep.data.transcriptPath) {
+  const transcriptId = ep.data.transcriptPath.split("/").pop()?.replace(/\.md$/, "");
+  if (transcriptId) {
+    const entry = await getEntry("transcripts", transcriptId);
+    if (entry) transcript = await render(entry);
+  }
+}
+---
+
+<BaseLayout title={ep.data.title} description={ep.data.description}>
+  <a href={`${base}episodes/`} class="muted">&larr; All episodes</a>
+  <h1>{ep.data.title}</h1>
+
+  <p class="muted">
+    {ep.data.publishDate.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+    {season && <> · {season.data.title}</>}
+    {ep.data.status !== "published" && <> · <span class="pill pill--technology">Upcoming</span></>}
+  </p>
+
+  {tags.length > 0 && (
+    <div class="tag-row">
+      {tags.map((t) => <TagPill label={t.label} category={t.category} />)}
+    </div>
+  )}
+
+  {ep.data.youtubeVideoId && (
+    <div class="video-embed">
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${ep.data.youtubeVideoId}`}
+        title={ep.data.title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+    </div>
+  )}
+
+  {ep.data.description && <p>{ep.data.description}</p>}
+
+  {speakers.length > 0 && (
+    <section class="section">
+      <h2>Speakers</h2>
+      <ul class="speaker-list">
+        {speakers.map((s) => (
+          <li>
+            <a href={`${base}speakers/${s.id}/`}>{s.data.name}</a>
+            {s.data.company && <span class="muted"> — {s.data.company}</span>}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {ep.data.metrics && (
+    <section class="section">
+      <h2>Metrics</h2>
+      <p class="muted">
+        {ep.data.metrics.views != null && <>{ep.data.metrics.views.toLocaleString()} views</>}
+        {ep.data.metrics.likes != null && <> · {ep.data.metrics.likes.toLocaleString()} likes</>}
+        {ep.data.metrics.comments != null && <> · {ep.data.metrics.comments.toLocaleString()} comments</>}
+      </p>
+    </section>
+  )}
+
+  {ep.data.chapters && ep.data.chapters.length > 0 && (
+    <section class="section">
+      <h2>Chapters</h2>
+      <ul class="chapter-list">
+        {ep.data.chapters.map((c) => (
+          <li><code>{c.time}</code> {c.label}</li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {transcript && (
+    <section class="section">
+      <h2>Transcript</h2>
+      <details>
+        <summary>Show full transcript</summary>
+        <div class="transcript">
+          <transcript.Content />
+        </div>
+      </details>
+    </section>
+  )}
+
+  <style>
+    .tag-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0; }
+    .video-embed {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--mm-radius);
+      margin: 1.5rem 0;
+    }
+    .video-embed iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .section { margin-top: 2rem; }
+    .speaker-list, .chapter-list { list-style: none; padding: 0; }
+    .speaker-list li, .chapter-list li { padding: 0.3rem 0; }
+    .chapter-list code {
+      display: inline-block;
+      min-width: 3.5em;
+      color: var(--mm-accent);
+      font-family: var(--mm-font-mono);
+    }
+    .transcript {
+      max-height: 480px;
+      overflow-y: auto;
+      padding: 1rem;
+      margin-top: 0.75rem;
+      background: var(--mm-bg-elevated);
+      border: 1px solid var(--mm-border);
+      border-radius: var(--mm-radius);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+  </style>
+</BaseLayout>

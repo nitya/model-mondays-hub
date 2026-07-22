@@ -1,0 +1,4 @@
+id: cohere-models
+label: Cohere Models
+category: model
+description: Cohere's Command, Embed, Rerank, and Transcribe model families.

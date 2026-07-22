@@ -1,0 +1,97 @@
+---
+// site/src/pages/index.astro
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
+
+const base = import.meta.env.BASE_URL;
+
+const episodes = (await getCollection("episodes")).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+const published = episodes.filter((e) => e.data.status === "published");
+const upcoming = episodes.filter((e) => e.data.status !== "published").slice(0, 4);
+const latest = published.slice(0, 3);
+
+const seasons = await getCollection("seasons");
+const activeSeason = seasons.find((s) => s.data.status === "upcoming") ?? seasons[0];
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+const latestPost = posts[0];
+---
+
+<BaseLayout title="Home">
+  <section class="hero">
+    <p class="pill pill--technology">Weekly since 2025</p>
+    <h1>Build your Model IQ, one Monday at a time.</h1>
+    <p class="muted hero__lede">
+      Model Mondays is Microsoft's weekly AI livestream/podcast series — Tech
+      Spotlights, Customer Stories, Study Corner, and Partner Spotlights
+      across the Microsoft Foundry model catalog.
+      {activeSeason && (
+        <>
+          {" "}<strong>{activeSeason.data.title}</strong> kicks off{" "}
+          {activeSeason.data.startDate.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}.
+        </>
+      )}
+    </p>
+    <div class="hero__actions">
+      <a class="button" href={`${base}episodes/`}>Browse episodes</a>
+      <a class="button button--ghost" href={`${base}speakers/`}>Meet the speakers</a>
+    </div>
+  </section>
+
+  {latestPost && (
+    <section class="section">
+      <h2>Latest from the blog</h2>
+      <a class="card" href={`${base}blog/${latestPost.id}/`}>
+        <h3>{latestPost.data.title}</h3>
+        {latestPost.data.summary && <p class="muted">{latestPost.data.summary}</p>}
+      </a>
+    </section>
+  )}
+
+  <section class="section">
+    <h2>Latest episodes</h2>
+    <div class="grid">
+      {latest.map((ep) => (
+        <Card
+          href={`${base}episodes/${ep.id}/`}
+          title={ep.data.title}
+          meta={ep.data.publishDate.toLocaleDateString()}
+        />
+      ))}
+    </div>
+  </section>
+
+  {upcoming.length > 0 && (
+    <section class="section">
+      <h2>Coming up in {activeSeason?.data.title ?? "the next season"}</h2>
+      <div class="grid">
+        {upcoming.map((ep) => (
+          <Card
+            href={`${base}episodes/${ep.id}/`}
+            title={ep.data.title}
+            meta={ep.data.publishDate.toLocaleDateString()}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <style>
+    .hero { padding: 2rem 0 1rem; max-width: 720px; }
+    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0.5rem 0; }
+    .hero__lede { font-size: 1.05rem; }
+    .hero__actions { display: flex; gap: 0.75rem; margin-top: 1rem; }
+    .button--ghost {
+      background: transparent;
+      color: var(--mm-text);
+      border: 1px solid var(--mm-border);
+    }
+    .section { margin-top: 2.5rem; }
+    .section h2 { margin-bottom: 1rem; }
+  </style>
+</BaseLayout>
