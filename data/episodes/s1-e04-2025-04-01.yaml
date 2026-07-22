@@ -2,9 +2,9 @@
 id: s1-e04-2025-04-01
 title: Model Mondays - Hands-on with Visual Generative Models
 description: >-
-  In this episode, we’ll dive into the world of visual generative AI and learn how text-to-image and
-  image-to-image capabilities can help us generate high-quality imagery with the power of a single
-  prompt. Popular use cases include style transfer, image restoration - given a seed image.
+  In this episode, we’ll dive into the world of visual generative AI and learn how text-to-image and image-to-image
+  capabilities can help us generate high-quality imagery with the power of a single prompt. Popular use cases include
+  style transfer, image restoration - given a seed image.
 season: season-1
 publishDate: '2025-04-01'
 status: published
@@ -37,3 +37,10 @@ chapters:
   - time: '27:37'
     label: Demo
 provenance: scraped:youtube-playlist
+resources:
+  - title: Azure AI Foundry documentation
+    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
+    type: documentation
+  - title: Model Mondays series (RSVP)
+    url: https://developer.microsoft.com/reactor/series/S-1485
+    type: overview

@@ -2,12 +2,12 @@
 id: s1-e01-2025-03-11
 title: Model Mondays – Hands On With GitHub Models
 description: >-
-  Join us for Model Mondays – a weekly show where we round up all the latest AI model news and put
-  one model in the spotlight for a deeper dive. 
+  Join us for Model Mondays – a weekly show where we round up all the latest AI model news and put one model in the
+  spotlight for a deeper dive. 
    
-  In this kickoff episode, we’ll set the stage for season 1 by talking about the models we’ll
-  spotlight. Then, we’ll do a deep dive into GitHub Models and show you how you can get started with
-  exploring these hands-on today, with just a GitHub account!
+  In this kickoff episode, we’ll set the stage for season 1 by talking about the models we’ll spotlight. Then, we’ll do
+  a deep dive into GitHub Models and show you how you can get started with exploring these hands-on today, with just a
+  GitHub account!
 season: season-1
 publishDate: '2025-03-11'
 status: published
@@ -27,3 +27,10 @@ metrics:
 transcriptPath: data/transcripts/model-mondays-hands-on-with-github-models.md
 chapters: []
 provenance: scraped:youtube-playlist
+resources:
+  - title: Azure AI Foundry documentation
+    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
+    type: documentation
+  - title: Model Mondays series (RSVP)
+    url: https://developer.microsoft.com/reactor/series/S-1485
+    type: overview

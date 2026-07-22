@@ -1,0 +1,16 @@
+id: command-r-plus
+name: Command R+
+provider: Cohere
+family: Command
+category: language
+description: Cohere's enterprise-grade model optimized for RAG, tool use, and multi-step reasoning.
+catalogUrl: https://ai.azure.com/catalog/models/Cohere-command-r-plus-08-2024
+providerUrl: https://cohere.com/command
+learnUrl: https://learn.microsoft.com/en-us/azure/ai/studio/how-to/deploy-models-cohere-command
+openSource: false
+status: active
+episodes:
+  - s3-e14-2026-04-07
+statusUpdatedAt: '2026-07-22'
+provenance: seed:manual-curation
+publisherUrl: https://ai.azure.com/catalog/publishers/cohere

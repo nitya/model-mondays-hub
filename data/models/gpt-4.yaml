@@ -1,0 +1,16 @@
+id: gpt-4
+name: GPT-4
+provider: OpenAI
+family: GPT
+category: language
+description: OpenAI's large language model with strong reasoning and instruction-following capabilities.
+catalogUrl: https://ai.azure.com/catalog/models/gpt-4
+providerUrl: https://openai.com/gpt-4
+learnUrl: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models
+openSource: false
+status: active
+episodes:
+  - s1-e01-2025-03-11
+statusUpdatedAt: '2026-07-22'
+provenance: seed:manual-curation
+publisherUrl: https://ai.azure.com/catalog/publishers/azure-openai

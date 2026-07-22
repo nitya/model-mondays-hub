@@ -86,6 +86,17 @@ const episodes = defineCollection({
       .optional(),
     transcriptPath: z.string().optional(),
     chapters: z.array(z.object({ time: z.string(), label: z.string() })).optional(),
+    resources: z.array(z.object({
+      title: z.string(),
+      url: z.string().url(),
+      type: z.enum(["documentation", "tutorial", "quickstart", "overview", "sample"]).default("documentation"),
+    })).optional(),
+    summary: z.object({
+      highlights: z.array(z.string()).optional(),
+      techSpotlights: z.array(z.string()).optional(),
+      customerStories: z.array(z.string()).optional(),
+      partnerSpotlights: z.array(z.string()).optional(),
+    }).optional(),
     provenance: z.string().optional(),
   }),
 });

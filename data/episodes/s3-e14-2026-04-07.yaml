@@ -2,9 +2,9 @@
 id: s3-e14-2026-04-07
 title: Model Mondays - Unlocking enterprise value with Cohere
 description: >-
-  Partner Spotlight: Cohere joins Model Mondays to show how their cutting-edge AI models accelerate
-  decision-making, improve efficiency, and drive enterprise value. This hands-on session will
-  feature a live demo and real-world use cases to help you work smarter.
+  Partner Spotlight: Cohere joins Model Mondays to show how their cutting-edge AI models accelerate decision-making,
+  improve efficiency, and drive enterprise value. This hands-on session will feature a live demo and real-world use
+  cases to help you work smarter.
 season: season-3
 publishDate: '2026-04-07'
 status: published
@@ -91,3 +91,19 @@ chapters:
   - time: '41:24'
     label: Final Thanks & Session Close
 provenance: scraped:youtube-playlist
+resources:
+  - title: Azure AI Foundry documentation
+    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
+    type: documentation
+  - title: Model Mondays series (RSVP)
+    url: https://developer.microsoft.com/reactor/series/S-1485
+    type: overview
+summary:
+  highlights:
+    - Discussion of model selection and deployment strategies
+    - Live demonstration of platform capabilities
+    - Open source model ecosystem and community contributions
+    - Enterprise-grade AI deployment considerations
+  partnerSpotlights:
+    - 'Cohere: Enterprise RAG and language understanding capabilities'
+    - 'Hugging Face: Open model hub integration with Azure'

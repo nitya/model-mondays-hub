@@ -2,10 +2,10 @@
 id: s1-e08-2025-04-29
 title: Model Mondays - Hands-on with Forecasting Models
 description: >-
-  In this episode, we’ll dive into the topic of domain-specific models with a look at forecasting
-  models trained on time-series data. This allows for predictions and anomaly detection use cases
-  without typical training costs and latency of traditional approaches. Learn how this works, and
-  when to use it effectively in your generative AI applications.
+  In this episode, we’ll dive into the topic of domain-specific models with a look at forecasting models trained on
+  time-series data. This allows for predictions and anomaly detection use cases without typical training costs and
+  latency of traditional approaches. Learn how this works, and when to use it effectively in your generative AI
+  applications.
 season: season-1
 publishDate: '2025-04-29'
 status: published
@@ -26,3 +26,10 @@ metrics:
 transcriptPath: data/transcripts/model-mondays-hands-on-with-forecasting-models.md
 chapters: []
 provenance: scraped:youtube-playlist
+resources:
+  - title: Azure AI Foundry documentation
+    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
+    type: documentation
+  - title: Model Mondays series (RSVP)
+    url: https://developer.microsoft.com/reactor/series/S-1485
+    type: overview

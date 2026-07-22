@@ -1,0 +1,16 @@
+id: llama-4
+name: Llama 4
+provider: Meta
+family: Llama
+category: multimodal
+description: Meta's latest open-weight model family with native multimodal capabilities and mixture-of-experts architecture.
+catalogUrl: https://ai.azure.com/catalog/models/Llama-4-Scout-17B-16E-Instruct
+providerUrl: https://llama.meta.com/
+learnUrl: https://learn.microsoft.com/en-us/azure/ai/foundry/models/collections/meta
+openSource: true
+status: new
+episodes:
+  - s3-e09-2026-03-03
+statusUpdatedAt: '2026-07-22'
+provenance: seed:manual-curation
+publisherUrl: https://ai.azure.com/catalog/publishers/meta

@@ -45,13 +45,15 @@ const byCategory = {
       {(["model", "technology", "partner"] as const).map((cat) =>
         byCategory[cat].length > 0 && (
           <fieldset class="mm-gallery__filter-group">
-            <legend class="muted">{cat}</legend>
-            {byCategory[cat].map((t) => (
-              <label class="mm-gallery__tag-option">
-                <input type="checkbox" value={t.label.toLowerCase()} />
-                {t.label}
-              </label>
-            ))}
+            <legend class="mm-gallery__filter-legend">{cat}</legend>
+            <div class="mm-gallery__filter-pills">
+              {byCategory[cat].map((t) => (
+                <label class={`mm-gallery__tag-btn mm-gallery__tag-btn--${cat}`}>
+                  <input type="checkbox" value={t.label.toLowerCase()} hidden />
+                  <span class="mm-gallery__tag-label">{t.label}</span>
+                </label>
+              ))}
+            </div>
           </fieldset>
         )
       )}
@@ -92,22 +94,58 @@ const byCategory = {
     border: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
   }
-  .mm-gallery__filter-group legend {
-    font-size: 0.75rem;
+  .mm-gallery__filter-legend {
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-bottom: 0.2rem;
+    letter-spacing: 0.06em;
+    color: var(--mm-text-muted);
+    margin-bottom: 0.4rem;
+    font-weight: 600;
   }
-  .mm-gallery__tag-option {
+  .mm-gallery__filter-pills {
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .mm-gallery__tag-btn {
+    display: inline-flex;
     align-items: center;
-    gap: 0.4em;
-    font-size: 0.9rem;
+    padding: 0.35em 0.85em;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 500;
     cursor: pointer;
+    border: 1.5px solid var(--mm-border);
+    background: var(--mm-bg);
+    color: var(--mm-text-muted);
+    transition: all 0.15s ease;
+    user-select: none;
+  }
+  .mm-gallery__tag-btn:hover {
+    border-color: var(--mm-accent);
+    color: var(--mm-accent);
+    background: var(--mm-accent-soft);
+  }
+  /* Active states per category */
+  .mm-gallery__tag-btn:has(input:checked) {
+    font-weight: 600;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .mm-gallery__tag-btn--model:has(input:checked) {
+    background: color-mix(in srgb, #2b8a3e 15%, transparent);
+    border-color: #2b8a3e;
+    color: #2b8a3e;
+  }
+  .mm-gallery__tag-btn--technology:has(input:checked) {
+    background: color-mix(in srgb, var(--mm-accent) 15%, transparent);
+    border-color: var(--mm-accent);
+    color: var(--mm-accent);
+  }
+  .mm-gallery__tag-btn--partner:has(input:checked) {
+    background: color-mix(in srgb, #e8590c 15%, transparent);
+    border-color: #e8590c;
+    color: #e8590c;
   }
 </style>
 
@@ -124,7 +162,7 @@ const byCategory = {
     const searchInput = gallery.querySelector<HTMLInputElement>(".mm-gallery__search");
     const sortSelect = gallery.querySelector<HTMLSelectElement>(".mm-gallery__sort");
     const tagCheckboxes = Array.from(
-      gallery.querySelectorAll<HTMLInputElement>('.mm-gallery__tag-option input[type="checkbox"]')
+      gallery.querySelectorAll<HTMLInputElement>('.mm-gallery__tag-btn input[type="checkbox"]')
     );
     const emptyMsg = gallery.querySelector<HTMLElement>(".mm-gallery__empty");
 

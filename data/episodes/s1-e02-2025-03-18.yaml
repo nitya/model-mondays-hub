@@ -2,12 +2,12 @@
 id: s1-e02-2025-03-18
 title: Model Mondays – Hands on with Reasoning Models (o1 and beyond)
 description: >-
-  Join us for Model Mondays – a weekly show where we round up all the latest AI model news and put
-  one model in the spotlight for a deeper dive. 
+  Join us for Model Mondays – a weekly show where we round up all the latest AI model news and put one model in the
+  spotlight for a deeper dive. 
    
-  In this episode, we’re joined by Jennifer Marsman as we dive into the world of reasoning models.
-  We’ll get hands-on with the o1 series of models and more as we learn what these models can do, how
-  they work, and how you can use them most effectively for your generative AI application needs.
+  In this episode, we’re joined by Jennifer Marsman as we dive into the world of reasoning models. We’ll get hands-on
+  with the o1 series of models and more as we learn what these models can do, how they work, and how you can use them
+  most effectively for your generative AI application needs.
 season: season-1
 publishDate: '2025-03-18'
 status: published
@@ -28,3 +28,10 @@ metrics:
 transcriptPath: data/transcripts/model-mondays-hands-on-with-reasoning-models-o1-and-beyond.md
 chapters: []
 provenance: scraped:youtube-playlist
+resources:
+  - title: Azure AI Foundry documentation
+    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
+    type: documentation
+  - title: Model Mondays series (RSVP)
+    url: https://developer.microsoft.com/reactor/series/S-1485
+    type: overview

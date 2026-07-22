@@ -2,10 +2,9 @@
 id: s1-e07-2025-04-21
 title: Model Mondays - Hands-on with Open Source and AI Models
 description: >-
-  Join us for Episode 07 of Season 1 of #ModelMondays as we put the spotlight on open-source and AI
-  development with a look at the Meta #Llama4 herd of recently released models. Huge props to
-  Alexander Hughes for giving us an introduction to the Llama4 capabilities and to Pamela Fox for a
-  hands-on look at multimodal features and more.
+  Join us for Episode 07 of Season 1 of #ModelMondays as we put the spotlight on open-source and AI development with a
+  look at the Meta #Llama4 herd of recently released models. Huge props to Alexander Hughes for giving us an
+  introduction to the Llama4 capabilities and to Pamela Fox for a hands-on look at multimodal features and more.
 season: season-1
 publishDate: '2025-04-21'
 status: published
@@ -25,3 +24,10 @@ metrics:
 transcriptPath: data/transcripts/model-mondays-hands-on-with-open-source-and-ai-models.md
 chapters: []
 provenance: scraped:youtube-playlist
+resources:
+  - title: Azure AI Foundry documentation
+    url: https://learn.microsoft.com/en-us/azure/ai/foundry/
+    type: documentation
+  - title: Model Mondays series (RSVP)
+    url: https://developer.microsoft.com/reactor/series/S-1485
+    type: overview

@@ -1,0 +1,16 @@
+id: mai-1
+name: MAI-1
+provider: Microsoft
+family: MAI
+category: language
+description: Microsoft's proprietary large language model for enterprise-grade AI applications.
+catalogUrl: https://ai.azure.com/catalog/models/MAI-DS-R1
+providerUrl: https://azure.microsoft.com/en-us/blog/tag/mai/
+learnUrl: https://learn.microsoft.com/en-us/azure/ai/foundry/models/collections/microsoft
+openSource: false
+status: active
+episodes:
+  - s3-e06-2026-02-02
+statusUpdatedAt: '2026-07-22'
+provenance: seed:manual-curation
+publisherUrl: https://ai.azure.com/catalog/publishers/microsoft

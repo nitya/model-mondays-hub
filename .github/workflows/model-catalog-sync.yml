@@ -1,0 +1,56 @@
+name: model-catalog-sync
+
+# Cron job: checks Azure AI model catalog for status changes (new models,
+# deprecations, retirements) and updates data/models/*.yaml accordingly.
+# Opens a PR with any changes for review.
+#
+# Runs weekly on Wednesdays (offset from Monday stats job).
+# Uses the public ai.azure.com catalog — no API key required.
+
+on:
+  schedule:
+    # Every Wednesday at 10:00 UTC
+    - cron: "0 10 * * 3"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-models:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: rm -f package-lock.json && npm install
+
+      - name: Sync model catalog status
+        run: node scripts/sync-model-catalog.mjs
+
+      - name: Validate data
+        run: npm run validate
+
+      - name: Open PR with model updates
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: sync model catalog status [automated]"
+          title: "🤖 Model catalog sync — status updates"
+          body: |
+            Automated model catalog sync detected changes:
+            - Checks each tracked model against ai.azure.com/catalog
+            - Updates status: `new` → `active` (after 30 days), `active` → `deprecated`/`retired`
+            - Flags models no longer found in catalog
+
+            Review the YAML diffs to confirm status changes.
+          branch: auto/model-catalog-sync
+          delete-branch: true
+          labels: automated,models

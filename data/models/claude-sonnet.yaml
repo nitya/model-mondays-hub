@@ -1,0 +1,16 @@
+id: claude-sonnet
+name: Claude 3.5 Sonnet
+provider: Anthropic
+family: Claude
+category: language
+description: Anthropic's balanced model offering strong performance across reasoning, analysis, and code at moderate cost.
+catalogUrl: https://ai.azure.com/catalog/models/claude-3-5-sonnet
+providerUrl: https://www.anthropic.com/claude
+learnUrl: https://learn.microsoft.com/en-us/azure/ai/foundry/models/collections/anthropic
+openSource: false
+status: active
+episodes:
+  - s3-e08-2026-02-23
+statusUpdatedAt: '2026-07-22'
+provenance: seed:manual-curation
+publisherUrl: https://ai.azure.com/catalog/publishers/anthropic
