@@ -5,8 +5,8 @@ family: GPT
 category: language
 description: OpenAI's large language model with strong reasoning and instruction-following capabilities.
 catalogUrl: https://ai.azure.com/catalog/models/gpt-4
-providerUrl: https://openai.com/gpt-4
-learnUrl: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models
+providerUrl: https://openai.com/index/gpt-4
+learnUrl: https://learn.microsoft.com/azure/ai-services/openai/concepts/models
 openSource: false
 status: active
 episodes:

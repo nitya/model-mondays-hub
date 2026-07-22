@@ -6,7 +6,7 @@ category: language
 description: Meta's open-weight LLM available in 8B and 70B variants, widely adopted for fine-tuning and deployment.
 catalogUrl: https://ai.azure.com/catalog/models/Meta-Llama-3.1-70B-Instruct
 providerUrl: https://llama.meta.com/llama3/
-learnUrl: https://learn.microsoft.com/en-us/azure/ai/foundry/models/collections/meta
+learnUrl: https://ai.azure.com/explore/models?selectedCollection=meta
 parameters: 8B–405B
 openSource: true
 status: active

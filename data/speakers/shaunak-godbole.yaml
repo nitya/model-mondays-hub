@@ -3,7 +3,9 @@ name: Shaunak Godbole
 company: Fireworks AI
 title: Field CTO
 bio: >-
-  Field CTO at Fireworks AI, focused on helping developers run best-in-class
-  open models at scale on Microsoft Foundry without managing infrastructure.
+  Field CTO at Fireworks AI, focused on helping developers run best-in-class open models at scale on Microsoft Foundry
+  without managing infrastructure.
 role: guest
 provenance: scraped:youtube-playlist
+avatar: >-
+  https://developer.microsoft.com/reactor/mediahandler/speakers/images/speaker_images/ShaunakFireworks_20260313210701110.png

@@ -6,7 +6,7 @@ category: language
 description: Mistral's flagship model for complex reasoning, multilingual tasks, and code generation.
 catalogUrl: https://ai.azure.com/catalog/models/Mistral-Large-2
 providerUrl: https://mistral.ai/technology/
-learnUrl: https://learn.microsoft.com/en-us/azure/ai/foundry/models/collections/mistral-ai
+learnUrl: https://ai.azure.com/explore/models?selectedCollection=mistralai
 openSource: false
 status: active
 episodes:

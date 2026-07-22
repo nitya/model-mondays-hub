@@ -5,8 +5,8 @@ family: o-series
 category: reasoning
 description: OpenAI's reasoning model that thinks before answering, excelling at math, science, and complex logic.
 catalogUrl: https://ai.azure.com/catalog/models/o1
-providerUrl: https://openai.com/o1
-learnUrl: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#o1-and-o1-mini-models
+providerUrl: https://openai.com/index/learning-to-reason-with-llms
+learnUrl: https://learn.microsoft.com/azure/ai-services/openai/concepts/models#o1-and-o1-mini-models
 openSource: false
 status: active
 episodes:

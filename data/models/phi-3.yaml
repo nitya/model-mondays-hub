@@ -5,8 +5,8 @@ family: Phi
 category: small-language
 description: Microsoft's capable small model available in mini (3.8B) and medium (14B) variants for on-device AI.
 catalogUrl: https://ai.azure.com/catalog/models/Phi-3-mini-4k-instruct
-providerUrl: https://azure.microsoft.com/en-us/blog/introducing-phi-3/
-learnUrl: https://learn.microsoft.com/en-us/azure/ai/foundry/models/phi-3
+providerUrl: https://techcommunity.microsoft.com/blog/aiplatformblog/introducing-phi-3/4080183
+learnUrl: https://ai.azure.com/explore/models/Phi-3-mini-4k-instruct/version/2/registry/azureml
 parameters: 3.8B–14B
 openSource: true
 status: active

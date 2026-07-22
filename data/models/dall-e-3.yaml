@@ -5,8 +5,8 @@ family: DALL·E
 category: image-generation
 description: OpenAI's latest image generation model with improved prompt following and text rendering.
 catalogUrl: https://ai.azure.com/catalog/models/dall-e-3
-providerUrl: https://openai.com/dall-e-3
-learnUrl: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#dall-e
+providerUrl: https://openai.com/index/dall-e-3
+learnUrl: https://learn.microsoft.com/azure/ai-services/openai/concepts/models#dall-e
 openSource: false
 status: active
 episodes:
