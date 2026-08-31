@@ -1,11 +1,15 @@
+# Managed by scripts/fetch-youtube-stats.mjs — metrics block auto-updated weekly.
 id: s3-e13-2026-03-30
-title: Model Mondays - Build AI with Hugging Face Models, Build Enterprise Agents With Agent 365 & Work IQ
+title: >-
+  Model Mondays - Build AI with Hugging Face Models, Build Enterprise Agents With Agent 365 & Work
+  IQ
 description: >-
   Partner Spotlight: Hugging Face - How to build AI with Hugging Face in Microsoft Foundry 
 
-  With open source models, you can build your own AI applications for text, audio, images and more. How do you deploy
-  them securely within your enterprise environment? Join Jeff Boudier from Hugging Face to learn about the latest and
-  greatest open models, and how to easily deploy them in your Azure account with Microsoft Foundry.
+  With open source models, you can build your own AI applications for text, audio, images and more.
+  How do you deploy them securely within your enterprise environment? Join Jeff Boudier from Hugging
+  Face to learn about the latest and greatest open models, and how to easily deploy them in your
+  Azure account with Microsoft Foundry.
 season: season-3
 publishDate: '2026-03-30'
 status: published
@@ -25,10 +29,10 @@ tags:
   - work-iq
 duration: 3854
 metrics:
-  views: 1042
+  views: 1063
   likes: 37
   comments: 1
-  updatedAt: '2026-07-22T03:56:29.282Z'
+  updatedAt: '2026-08-31T19:22:25.462Z'
 transcriptPath: data/transcripts/s3-e13-2026-03-30.md
 chapters:
   - time: '0:08'
