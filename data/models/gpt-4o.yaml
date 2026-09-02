@@ -12,6 +12,6 @@ status: active
 episodes:
   - s1-e01-2025-03-11
   - s2-e01-2025-06-16
-statusUpdatedAt: '2026-07-22'
+statusUpdatedAt: '2026-09-02'
 provenance: seed:manual-curation
 publisherUrl: https://ai.azure.com/catalog/publishers/azure-openai

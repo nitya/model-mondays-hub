@@ -11,6 +11,6 @@ openSource: true
 status: active
 episodes:
   - s2-e11-2025-08-25
-statusUpdatedAt: '2026-07-22'
+statusUpdatedAt: '2026-09-02'
 provenance: seed:manual-curation
 publisherUrl: https://ai.azure.com/catalog/publishers/azure-openai

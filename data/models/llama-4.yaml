@@ -8,9 +8,9 @@ catalogUrl: https://ai.azure.com/catalog/models/Llama-4-Scout-17B-16E-Instruct
 providerUrl: https://llama.meta.com/
 learnUrl: https://ai.azure.com/explore/models?selectedCollection=meta
 openSource: true
-status: new
+status: active
 episodes:
   - s3-e09-2026-03-03
-statusUpdatedAt: '2026-07-22'
+statusUpdatedAt: '2026-09-02'
 provenance: seed:manual-curation
 publisherUrl: https://ai.azure.com/catalog/publishers/meta

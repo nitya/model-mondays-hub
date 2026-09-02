@@ -8,9 +8,9 @@ catalogUrl: https://ai.azure.com/catalog/models/o3
 providerUrl: https://openai.com/index/deliberative-alignment
 learnUrl: https://learn.microsoft.com/azure/ai-services/openai/concepts/models#o-series-models
 openSource: false
-status: new
+status: active
 episodes:
   - s2-e01-2025-06-16
-statusUpdatedAt: '2026-07-22'
+statusUpdatedAt: '2026-09-02'
 provenance: seed:manual-curation
 publisherUrl: https://ai.azure.com/catalog/publishers/azure-openai
